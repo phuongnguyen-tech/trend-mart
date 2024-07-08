@@ -23,6 +23,23 @@ export function useGetProducts() {
   return memoizeValue;
 }
 
+export function useGetProduct(productId: string) {
+  const URL = productId ? [endpoints.product.details, { params: { productId } }] : '';
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher);
+
+  const memoizeValue = useMemo(
+    () => ({
+      product: data?.product as IProductItem,
+      productLoading: isLoading,
+      productError: error,
+      productValidating: isValidating,
+    }),
+    [data?.product, error, isLoading, isValidating]
+  );
+  return memoizeValue;
+}
+
 export function useSearchProducts(query: string) {
   const URL = query ? [endpoints.product.search, { params: { query } }] : '';
 

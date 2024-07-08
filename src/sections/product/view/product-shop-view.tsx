@@ -42,7 +42,7 @@ const defaultFilters: IProductFilters = {
 };
 
 export default function ProductShopView() {
-  const settings = useSettingsContext();
+  const settings = useSettingsContext(); // Set Context
 
   const checkout = useCheckoutContext();
 
@@ -52,11 +52,11 @@ export default function ProductShopView() {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const debouncedQuery = useDebounce(searchQuery);
+  const debouncedQuery = useDebounce(searchQuery); // delay 500ms
 
   const [filters, setFilters] = useState(defaultFilters);
 
-  const { products, productsLoading, productsEmpty } = useGetProducts();
+  const { products, productsLoading, productsEmpty } = useGetProducts(); // call api
 
   const { searchResults, searchLoading } = useSearchProducts(debouncedQuery);
 
@@ -127,6 +127,7 @@ export default function ProductShopView() {
     </Stack>
   );
 
+  // giao diện show product khi filter
   const renderResults = (
     <ProductFiltersResult
       filters={filters}
@@ -139,6 +140,7 @@ export default function ProductShopView() {
     />
   );
 
+  //   giao diện show no data khi filter
   const renderNotFound = <EmptyContent filled title="No Data" sx={{ py: 10 }} />;
 
   return (
@@ -176,6 +178,8 @@ export default function ProductShopView() {
     </Container>
   );
 }
+
+// inputData,filters,sortBy,
 
 function applyFilter({
   inputData,
