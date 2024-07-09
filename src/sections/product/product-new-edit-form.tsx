@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMemo, useState, useEffect, useCallback } from 'react';
@@ -29,11 +30,19 @@ import {
   PRODUCT_CATEGORY_GROUP_OPTIONS,
 } from 'src/_mock';
 
-import { IProductItem } from 'src/types/product';
-import { useSnackbar } from 'notistack';
-import { RHFTextField } from 'src/components/hook-form';
-import { RHFMultiSelect, RHFSelect } from 'src/routes/components/hook-form/rhf-select';
 import FormProvider from 'src/components/hook-form/form-provider';
+import {
+  RHFEditor,
+  RHFSelect,
+  RHFSwitch,
+  RHFUpload,
+  RHFTextField,
+  RHFMultiSelect,
+  RHFAutocomplete,
+  RHFMultiCheckbox,
+} from 'src/components/hook-form';
+
+import { IProductItem } from 'src/types/product';
 
 // ----------------------------------------------------------------------
 

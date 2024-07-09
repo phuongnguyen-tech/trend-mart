@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 
 import { paths } from 'src/routes/paths';
-import { RHFSelect } from 'src/routes/components/hook-form/rhf-select';
+import { RHFSelect } from 'src/components/hook-form/rhf-select';
 
 import { fCurrency, fShortenNumber } from 'src/utils/format-number';
 

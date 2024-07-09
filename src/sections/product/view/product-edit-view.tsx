@@ -1,8 +1,13 @@
 import { Container } from '@mui/material';
-import { useGetProduct } from 'src/api/product';
-import { useSettingsContext } from 'src/components/settings';
-import CustomBreadcrumbs from 'src/routes/components/custom-breadcrumbs';
+
 import { paths } from 'src/routes/paths';
+
+import { useGetProduct } from 'src/api/product';
+
+import { useSettingsContext } from 'src/components/settings';
+import CustomBreadcrumbs from 'src/components/custom-breadcrumbs/custom-breadcrumbs';
+
+import ProductNewEditForm from '../product-new-edit-form';
 
 type Props = {
   id: string;
@@ -14,7 +19,7 @@ export default function ProductEditView({ id }: Props) {
   const { product: currentProduct } = useGetProduct(id);
 
   return (
-    <Container>
+    <Container maxWidth={settings.themeStretch ? false : 'lg'}>
       <CustomBreadcrumbs
         heading="Edit"
         links={[

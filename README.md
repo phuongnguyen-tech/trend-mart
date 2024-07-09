@@ -12,10 +12,20 @@
 - npm i OR npm i --legacy-peer-deps
 - npm run dev
 
-## Node
+## Note
 
 - Mackdown
-  ReactMarkdown: giúp render văn bản Markdown thành các thành phần React.
-  remarkGfm: cho phép sử dụng các tính năng mở rộng của Markdown phong cách GitHub.
-  rehypeRaw: cho phép xử lý và render các đoạn HTML thô trong Markdown.
-  rehypeHighlight: cung cấp tính năng làm nổi bật cú pháp cho các khối mã trong Markdown.
+
+  - ReactMarkdown: giúp render văn bản Markdown thành các thành phần React.
+  - remarkGfm: cho phép sử dụng các tính năng mở rộng của Markdown phong cách GitHub.
+  - rehypeRaw: cho phép xử lý và render các đoạn HTML thô trong Markdown.
+  - rehypeHighlight: cung cấp tính năng làm nổi bật cú pháp cho các khối mã trong Markdown.
+
+- Edit
+
+  - react-quill cung cấp một trình soạn thảo văn bản mạnh mẽ và dễ sử dụng, cho phép người dùng tạo và chỉnh sửa nội dung văn bản với các định dạng phong phú như in đậm, in nghiêng, gạch chân, danh sách, liên kết, hình ảnh, v.v.
+
+- notistack
+
+- Upload
+  - react-dropzone là một thư viện React cho phép bạn tạo một khu vực kéo thả (drag-and-drop) để người dùng có thể kéo và thả tệp tin vào.
