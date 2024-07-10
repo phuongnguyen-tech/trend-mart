@@ -24,7 +24,7 @@ type Props = {
   reviews: IProductReview[];
 };
 
-export default function ProductDetailsPreview({
+export default function ProductDetailsReview({
   totalRatings,
   totalReviews,
   ratings,
@@ -92,8 +92,8 @@ export default function ProductDetailsPreview({
   const renderReviewButton = (
     <Stack alignItems="center" justifyContent="center">
       <Button
-        variant="soft"
         size="large"
+        variant="soft"
         color="inherit"
         onClick={review.onTrue}
         startIcon={<Iconify icon="solar:pen-bold" />}

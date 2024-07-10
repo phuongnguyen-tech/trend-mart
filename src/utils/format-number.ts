@@ -1,4 +1,4 @@
-// ----------------------------------------------------------------------
+import { useLocales as getLocales } from 'src/locales';
 
 /*
  * Locales code

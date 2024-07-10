@@ -3,8 +3,6 @@ import dynamic from 'next/dynamic';
 import { alpha } from '@mui/material/styles';
 import Skeleton from '@mui/material/Skeleton';
 
-import 'src/utils/highlight';
-
 import { EditorProps } from './types';
 import { StyledEditor } from './styles';
 import Toolbar, { formats } from './toolbar';

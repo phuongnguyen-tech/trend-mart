@@ -1,6 +1,3 @@
-/* eslint-disable perfectionist/sort-imports */
-import 'src/utils/highlight';
-
 // markdown plugins
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';

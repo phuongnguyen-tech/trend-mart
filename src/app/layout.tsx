@@ -1,16 +1,27 @@
 /* eslint-disable perfectionist/sort-imports */
 import 'src/global.css';
 
+// i18n
+import 'src/locales/i18n';
+
 // ----------------------------------------------------------------------
 
 import ThemeProvider from 'src/theme';
+import { LocalizationProvider } from 'src/locales';
 import { primaryFont } from 'src/theme/typography';
 
 import ProgressBar from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
+import SnackbarProvider from 'src/components/snackbar/snackbar-provider';
 import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 
-import { AuthProvider } from 'src/auth/context/jwt';
+// import { CheckoutProvider } from 'src/sections/checkout/context';
+
+// import { AuthProvider } from 'src/auth/context/jwt';
+// import { AuthProvider } from 'src/auth/context/auth0';
+// import { AuthProvider } from 'src/auth/context/amplify';
+// import { AuthProvider } from 'src/auth/context/firebase';
+// import { AuthProvider } from 'src/auth/context/supabase';
 
 // ----------------------------------------------------------------------
 
@@ -44,24 +55,30 @@ export default function RootLayout({ children }: Props) {
     <html lang="en" className={primaryFont.className}>
       <body>
         {/* <AuthProvider> */}
-        <SettingsProvider
-          defaultSettings={{
-            themeMode: 'light', // 'light' | 'dark'
-            themeDirection: 'ltr', //  'rtl' | 'ltr'
-            themeContrast: 'default', // 'default' | 'bold'
-            themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
-            themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
-            themeStretch: false,
-          }}
-        >
-          <ThemeProvider>
-            <MotionLazy>
-              <SettingsDrawer />
-              <ProgressBar />
-              {children}
-            </MotionLazy>
-          </ThemeProvider>
-        </SettingsProvider>
+        <LocalizationProvider>
+          <SettingsProvider
+            defaultSettings={{
+              themeMode: 'light', // 'light' | 'dark'
+              themeDirection: 'ltr', //  'rtl' | 'ltr'
+              themeContrast: 'default', // 'default' | 'bold'
+              themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
+              themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
+              themeStretch: false,
+            }}
+          >
+            <ThemeProvider>
+              <MotionLazy>
+                <SnackbarProvider>
+                  {/* <CheckoutProvider> */}
+                  <SettingsDrawer />
+                  <ProgressBar />
+                  {children}
+                  {/* </CheckoutProvider> */}
+                </SnackbarProvider>
+              </MotionLazy>
+            </ThemeProvider>
+          </SettingsProvider>
+        </LocalizationProvider>
         {/* </AuthProvider> */}
       </body>
     </html>

@@ -1,5 +1,3 @@
-import OneView from 'src/sections/one/view';
-
 // ----------------------------------------------------------------------
 
 export const metadata = {
@@ -7,5 +5,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <OneView />;
+  return <>sdaf</>;
 }

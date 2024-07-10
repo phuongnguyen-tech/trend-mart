@@ -1,14 +1,24 @@
 'use client';
 
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
+
 import { localStorageGetItem } from 'src/utils/storage-available';
+
 import { defaultLang } from './config-lang';
+import translationEn from './langs/en.json';
+import translationFr from './langs/fr.json';
+import translationVi from './langs/vi.json';
+import translationCn from './langs/cn.json';
+import translationAr from './langs/ar.json';
 
 // ----------------------------------------------------------------------
 
 const lng = localStorageGetItem('i18nextLng', defaultLang.value);
 
 i18n
-  .use(LanguageDetector)
+  .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {

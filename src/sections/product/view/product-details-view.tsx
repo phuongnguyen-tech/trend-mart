@@ -13,7 +13,7 @@ import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
 
 import { ProductDetailsSkeleton } from '../product-skeleton';
-import ProductDetailsPreview from '../product-details-review';
+import ProductDetailsReview from '../product-details-review';
 import ProductDetailsSummary from '../product-details-summary';
 import ProductDetailsToolbar from '../product-details-toolbar';
 import ProductDetailsCarousel from '../product-details-carousel';
@@ -157,7 +157,7 @@ export default function ProductDetailsView({ id }: Props) {
         )}
 
         {currentTab === 'reviews' && (
-          <ProductDetailsPreview
+          <ProductDetailsReview
             ratings={product.ratings}
             reviews={product.reviews}
             totalRatings={product.totalRatings}

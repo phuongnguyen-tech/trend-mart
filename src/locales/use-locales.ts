@@ -5,11 +5,9 @@ import { useTranslation } from 'react-i18next';
 
 import { localStorageGetItem } from 'src/utils/storage-available';
 
-import { allLangs } from 'src/layouts/common/language-popover';
-
 import { useSettingsContext } from 'src/components/settings';
 
-import { defaultLang } from './config-lang';
+import { allLangs, defaultLang } from './config-lang';
 
 // ----------------------------------------------------------------------
 

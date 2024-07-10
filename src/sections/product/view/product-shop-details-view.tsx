@@ -1,27 +1,36 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-import { Box, Tab, Card, Grid, Tabs, alpha, Button, Container, Typography } from '@mui/material';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import { alpha } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Unstable_Grid2';
+import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
-import CustomBreadcrumbs from 'src/routes/components/custom-breadcrumbs';
 
 import { useGetProduct } from 'src/api/product';
 
 import Iconify from 'src/components/iconify';
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
-
-import { useCheckoutContext } from 'src/sections/checkout/context/checkout-context';
+import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import CartIcon from '../common/cart-icon';
+import { useCheckoutContext } from '../../checkout/context';
+import ProductDetailsReview from '../product-details-review';
 import { ProductDetailsSkeleton } from '../product-skeleton';
-import ProductDetailsPreview from '../product-details-review';
 import ProductDetailsSummary from '../product-details-summary';
 import ProductDetailsCarousel from '../product-details-carousel';
 import ProductDetailsDescription from '../product-details-description';
+
+// ----------------------------------------------------------------------
 
 const SUMMARY = [
   {
@@ -41,19 +50,27 @@ const SUMMARY = [
   },
 ];
 
+// ----------------------------------------------------------------------
+
 type Props = {
   id: string;
 };
 
 export default function ProductShopDetailsView({ id }: Props) {
   const settings = useSettingsContext();
+
   const checkout = useCheckoutContext();
+
   const [currentTab, setCurrentTab] = useState('description');
+
   const { product, productLoading, productError } = useGetProduct(id);
+
   const handleChangeTab = useCallback((event: React.SyntheticEvent, newValue: string) => {
     setCurrentTab(newValue);
   }, []);
+
   const renderSkeleton = <ProductDetailsSkeleton />;
+
   const renderError = (
     <EmptyContent
       filled
@@ -153,7 +170,7 @@ export default function ProductShopDetailsView({ id }: Props) {
         )}
 
         {currentTab === 'reviews' && (
-          <ProductDetailsPreview
+          <ProductDetailsReview
             ratings={product.ratings}
             reviews={product.reviews}
             totalRatings={product.totalRatings}

@@ -32,7 +32,7 @@ export default function ProductEditView({ id }: Props) {
         }}
       />
 
-      <ProductNewEditForm />
+      <ProductNewEditForm currentProduct={currentProduct} />
     </Container>
   );
 }

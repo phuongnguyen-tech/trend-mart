@@ -28,4 +28,9 @@
 - notistack
 
 - Upload
+
   - react-dropzone là một thư viện React cho phép bạn tạo một khu vực kéo thả (drag-and-drop) để người dùng có thể kéo và thả tệp tin vào.
+
+-locales
+
+- i18next-browser-languagedetector là một plugin cho thư viện i18next, được sử dụng để tự động phát hiện ngôn ngữ của trình duyệt trong ứng dụng web của bạn. Điều này giúp tự động hiển thị nội dung trong ngôn ngữ phù hợp với người dùng mà không cần họ phải chọn ngôn ngữ thủ công.

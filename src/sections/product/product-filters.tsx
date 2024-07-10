@@ -98,7 +98,7 @@ export default function ProductFilters({
 
   const handleFilterPriceRange = useCallback(
     (event: Event, newValue: number | number[]) => {
-      onFilters('priceRange', newValue);
+      onFilters('priceRange', newValue as number);
     },
     [onFilters]
   );
