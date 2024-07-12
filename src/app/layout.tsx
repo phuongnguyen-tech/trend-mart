@@ -54,7 +54,8 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={primaryFont.className}>
       <body>
-        {/* <AuthProvider> */}
+        {/* <AuthProvider>
+        </AuthProvider> */}
         <LocalizationProvider>
           <SettingsProvider
             defaultSettings={{
@@ -69,17 +70,16 @@ export default function RootLayout({ children }: Props) {
             <ThemeProvider>
               <MotionLazy>
                 <SnackbarProvider>
-                  {/* <CheckoutProvider> */}
+                  {/* <CheckoutProvider>
+                    </CheckoutProvider> */}
                   <SettingsDrawer />
                   <ProgressBar />
                   {children}
-                  {/* </CheckoutProvider> */}
                 </SnackbarProvider>
               </MotionLazy>
             </ThemeProvider>
           </SettingsProvider>
         </LocalizationProvider>
-        {/* </AuthProvider> */}
       </body>
     </html>
   );
