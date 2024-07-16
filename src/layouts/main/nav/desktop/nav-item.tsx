@@ -1,13 +1,19 @@
 import { m } from 'framer-motion';
 import { forwardRef } from 'react';
 
-import { Box, Link, styled, LinkProps, ListItemButton, CardActionArea } from '@mui/material';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
+import Link, { LinkProps } from '@mui/material/Link';
+import CardActionArea from '@mui/material/CardActionArea';
+import ListItemButton from '@mui/material/ListItemButton';
 
 import { RouterLink } from 'src/routes/components';
 
 import Iconify from 'src/components/iconify';
 
 import { NavItemProps, NavItemStateProps } from '../types';
+
+// ----------------------------------------------------------------------
 
 export const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
   ({ title, path, open, active, hasChild, externalLink, subItem, ...other }, ref) => {
@@ -46,6 +52,8 @@ export const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
     );
   }
 );
+
+// ----------------------------------------------------------------------
 
 const StyledNavItem = styled(ListItemButton, {
   shouldForwardProp: (prop) => prop !== 'active' && prop !== 'subItem',
@@ -125,6 +133,8 @@ const StyledNavItem = styled(ListItemButton, {
     }),
   };
 });
+
+// ----------------------------------------------------------------------
 
 type NavItemDashboardProps = LinkProps & {
   path: string;

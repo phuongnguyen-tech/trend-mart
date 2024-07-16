@@ -9,8 +9,6 @@ import CustomDateRangePicker, { useDateRangePicker } from 'src/components/custom
 
 import ComponentBlock from '../../component-block';
 
-// ----------------------------------------------------------------------
-
 export default function PickerDateRange() {
   const rangeInputPicker = useDateRangePicker(new Date(), new Date());
 

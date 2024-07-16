@@ -1,8 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Slide, SlideImage } from 'yet-another-react-lightbox';
-import { SlideVideo } from 'yet-another-react-lightbox/plugins/video';
-
-// ----------------------------------------------------------------------
+import { Slide, SlideImage, SlideVideo } from 'yet-another-react-lightbox';
 
 type ReturnType = {
   open: boolean;

@@ -1,9 +1,11 @@
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 
 import { usePathname } from 'src/routes/hooks';
 
-import Header from './header';
 import Footer from './footer';
+import Header from './header';
+
+// ----------------------------------------------------------------------
 
 type Props = {
   children: React.ReactNode;

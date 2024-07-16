@@ -16,7 +16,7 @@ import {
   frFR as frFRDate,
   viVN as viVNDate,
   zhCN as zhCNDate,
-} from '@mui/x-date-pickers';
+} from '@mui/x-date-pickers/locales';
 // core (MUI)
 import {
   enUS as enUSCore,

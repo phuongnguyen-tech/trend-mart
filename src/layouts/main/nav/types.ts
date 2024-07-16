@@ -1,4 +1,7 @@
-import { StackProps, ListItemButtonProps } from '@mui/material';
+import { StackProps } from '@mui/material/Stack';
+import { ListItemButtonProps } from '@mui/material/ListItemButton';
+
+// ----------------------------------------------------------------------
 
 export type NavItemStateProps = {
   open?: boolean;
@@ -11,7 +14,7 @@ export type NavItemStateProps = {
 export type NavItemBaseProps = {
   title: string;
   path: string;
-  icon?: React.ReactNode;
+  icon?: React.ReactElement;
   children?: {
     subheader: string;
     items: {

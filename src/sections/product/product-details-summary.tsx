@@ -1,5 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useCallback } from 'react';
+// import { useForm, Controller } from 'react-hook-form';
+
 import { useForm, Controller } from 'react-hook-form';
 
 import {
@@ -15,13 +17,13 @@ import {
 } from '@mui/material';
 
 import { paths } from 'src/routes/paths';
-import { RHFSelect } from 'src/components/hook-form/rhf-select';
 
 import { fCurrency, fShortenNumber } from 'src/utils/format-number';
 
 import Label from 'src/components/label';
 import Iconify from 'src/components/iconify';
 import { ColorPicker } from 'src/components/color-utils';
+import { RHFSelect } from 'src/components/hook-form/rhf-select';
 import FormProvider from 'src/components/hook-form/form-provider';
 
 import { IProductItem } from 'src/types/product';

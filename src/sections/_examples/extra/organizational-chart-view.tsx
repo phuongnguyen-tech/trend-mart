@@ -9,6 +9,8 @@ import { paths } from 'src/routes/paths';
 import { _mock } from 'src/_mock';
 
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
+// import OrganizationalChart from 'src/components/organizational-chart';
+
 import OrganizationalChart from 'src/components/organizational-chart';
 
 import ComponentHero from 'src/sections/_examples/component-hero';

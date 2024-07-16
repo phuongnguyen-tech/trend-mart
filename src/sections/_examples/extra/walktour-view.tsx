@@ -9,36 +9,31 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
+// import Grid from '@mui/material/Unstable_Grid2';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import { paths } from 'src/routes/paths';
 
-import { MotivationIllustration } from 'src/assets/illustrations';
-import {
-  _mock,
-  _ecommerceNewProducts,
-  _ecommerceBestSalesman,
-  _ecommerceSalesOverview,
-  _ecommerceLatestProducts,
-} from 'src/_mock';
+// import { MotivationIllustration } from 'src/assets/illustrations';
+import { _mock } from 'src/_mock';
 
 import Iconify from 'src/components/iconify';
 import Walktour, { useWalktour } from 'src/components/walktour';
+// import Walktour, { useWalktour } from 'src/components/walktour';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import ComponentHero from 'src/sections/_examples/component-hero';
-import EcommerceWelcome from 'src/sections/overview/e-commerce/ecommerce-welcome';
-import EcommerceNewProducts from 'src/sections/overview/e-commerce/ecommerce-new-products';
-import EcommerceYearlySales from 'src/sections/overview/e-commerce/ecommerce-yearly-sales';
-import EcommerceBestSalesman from 'src/sections/overview/e-commerce/ecommerce-best-salesman';
-import EcommerceSaleByGender from 'src/sections/overview/e-commerce/ecommerce-sale-by-gender';
-import EcommerceSalesOverview from 'src/sections/overview/e-commerce/ecommerce-sales-overview';
-import EcommerceWidgetSummary from 'src/sections/overview/e-commerce/ecommerce-widget-summary';
-import EcommerceLatestProducts from 'src/sections/overview/e-commerce/ecommerce-latest-products';
-import EcommerceCurrentBalance from 'src/sections/overview/e-commerce/ecommerce-current-balance';
+// import EcommerceWelcome from 'src/sections/overview/e-commerce/ecommerce-welcome';
+// import EcommerceNewProducts from 'src/sections/overview/e-commerce/ecommerce-new-products';
+// import EcommerceYearlySales from 'src/sections/overview/e-commerce/ecommerce-yearly-sales';
+// import EcommerceBestSalesman from 'src/sections/overview/e-commerce/ecommerce-best-salesman';
+// import EcommerceSaleByGender from 'src/sections/overview/e-commerce/ecommerce-sale-by-gender';
+// import EcommerceSalesOverview from 'src/sections/overview/e-commerce/ecommerce-sales-overview';
+// import EcommerceWidgetSummary from 'src/sections/overview/e-commerce/ecommerce-widget-summary';
+// import EcommerceLatestProducts from 'src/sections/overview/e-commerce/ecommerce-latest-products';
+// import EcommerceCurrentBalance from 'src/sections/overview/e-commerce/ecommerce-current-balance';
 
 // ----------------------------------------------------------------------
 
@@ -241,7 +236,7 @@ export default function WalktourView() {
           </Button>
         </Stack>
 
-        <Grid container spacing={3}>
+        {/* <Grid container spacing={3}>
           <Grid xs={12} md={8}>
             <EcommerceWelcome
               id="demo__1"
@@ -394,7 +389,7 @@ export default function WalktourView() {
               list={_ecommerceLatestProducts}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
       </Container>
     </>
   );

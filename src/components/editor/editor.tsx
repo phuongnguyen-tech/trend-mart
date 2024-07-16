@@ -1,3 +1,6 @@
+/* eslint-disable perfectionist/sort-imports */
+import 'src/utils/highlight';
+
 import dynamic from 'next/dynamic';
 
 import { alpha } from '@mui/material/styles';
@@ -23,6 +26,8 @@ const ReactQuill = dynamic(() => import('react-quill'), {
     />
   ),
 });
+
+// ----------------------------------------------------------------------
 
 export default function Editor({
   id = 'minimal-quill',

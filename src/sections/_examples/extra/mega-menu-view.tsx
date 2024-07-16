@@ -6,8 +6,8 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import Drawer from '@mui/material/Drawer';
+// import Button from '@mui/material/Button';
+// import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -19,19 +19,13 @@ import { useBoolean } from 'src/hooks/use-boolean';
 
 import { _mock } from 'src/_mock';
 
-import Logo from 'src/components/logo';
+// import Logo from 'src/components/logo';
 import Iconify from 'src/components/iconify';
-import Scrollbar from 'src/components/scrollbar';
+// import Scrollbar from 'src/components/scrollbar';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-import {
-  MegaMenuMobile,
-  MegaMenuDesktopVertical,
-  MegaMenuDesktopHorizontal,
-} from 'src/components/mega-menu';
+import { MegaMenuDesktopVertical, MegaMenuDesktopHorizontal } from 'src/components/mega-menu';
 
 import ComponentHero from 'src/sections/_examples/component-hero';
-
-// ----------------------------------------------------------------------
 
 export default function MegaMenuView() {
   const pathname = usePathname();
@@ -80,35 +74,35 @@ export default function MegaMenuView() {
     </Stack>
   );
 
-  const renderMobile = (
-    <>
-      <Button
-        color="inherit"
-        variant="contained"
-        onClick={mobileOpen.onTrue}
-        startIcon={<Iconify icon="carbon:menu" />}
-      >
-        Menu Mobile
-      </Button>
+  // const renderMobile = (
+  //   <>
+  //     <Button
+  //       color="inherit"
+  //       variant="contained"
+  //       onClick={mobileOpen.onTrue}
+  //       startIcon={<Iconify icon="carbon:menu" />}
+  //     >
+  //       Menu Mobile
+  //     </Button>
 
-      <Drawer
-        open={mobileOpen.value}
-        onClose={mobileOpen.onFalse}
-        PaperProps={{
-          sx: {
-            pb: 5,
-            width: 260,
-          },
-        }}
-      >
-        <Scrollbar>
-          <Logo sx={{ mx: 2.5, my: 3 }} />
+  //     <Drawer
+  //       open={mobileOpen.value}
+  //       onClose={mobileOpen.onFalse}
+  //       PaperProps={{
+  //         sx: {
+  //           pb: 5,
+  //           width: 260,
+  //         },
+  //       }}
+  //     >
+  //       <Scrollbar>
+  //         <Logo sx={{ mx: 2.5, my: 3 }} />
 
-          <MegaMenuMobile data={NAV_ITEMS} />
-        </Scrollbar>
-      </Drawer>
-    </>
-  );
+  //         <MegaMenuMobile data={NAV_ITEMS} />
+  //       </Scrollbar>
+  //     </Drawer>
+  //   </>
+  // );
 
   return (
     <>
@@ -128,7 +122,7 @@ export default function MegaMenuView() {
       {renderHorizontal}
 
       <Container sx={{ my: 10 }}>
-        {renderMobile}
+        {/* {renderMobile} */}
 
         {renderVertical}
       </Container>

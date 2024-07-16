@@ -1,3 +1,5 @@
+'use client';
+
 import * as Yup from 'yup';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';

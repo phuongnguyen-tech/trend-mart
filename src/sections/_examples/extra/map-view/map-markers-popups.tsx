@@ -7,8 +7,6 @@ import Typography from '@mui/material/Typography';
 import Image from 'src/components/image';
 import { MapPopup, MapMarker, MapControl, MapBoxProps } from 'src/components/map';
 
-// ----------------------------------------------------------------------
-
 type CountryProps = {
   name: string;
   capital: string;

@@ -1,6 +1,16 @@
-import React, { useState, useEffect, useCallback } from 'react';
+'use client';
 
-import { Box, Tab, Card, Grid, Tabs, alpha, Button, Container, Typography } from '@mui/material';
+import { useState, useEffect, useCallback } from 'react';
+
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import { alpha } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Unstable_Grid2';
+import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -79,11 +89,13 @@ export default function ProductDetailsView({ id }: Props) {
           startIcon={<Iconify icon="eva:arrow-ios-back-fill" width={16} />}
           sx={{ mt: 3 }}
         >
-          Back to list
+          Back to List
         </Button>
       }
+      sx={{ py: 10 }}
     />
   );
+
   const renderProduct = product && (
     <>
       <ProductDetailsToolbar

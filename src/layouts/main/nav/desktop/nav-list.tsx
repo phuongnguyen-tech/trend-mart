@@ -1,14 +1,22 @@
 import { useState, useEffect, useCallback } from 'react';
 
-import { Fade, Paper, Stack, Portal, useTheme, ListSubheader } from '@mui/material';
+import Fade from '@mui/material/Fade';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import Portal from '@mui/material/Portal';
+import { useTheme } from '@mui/material/styles';
+import ListSubheader from '@mui/material/ListSubheader';
 
-import { usePathname, useActiveLink } from 'src/routes/hooks';
+import { usePathname } from 'src/routes/hooks';
+import { useActiveLink } from 'src/routes/hooks/use-active-link';
 
 import { paper } from 'src/theme/css';
-import { HEADER } from 'src/layouts/config-layout';
 
+import { HEADER } from '../../../config-layout';
 import { NavItem, NavItemDashboard } from './nav-item';
 import { NavListProps, NavSubListProps } from '../types';
+
+// ----------------------------------------------------------------------
 
 export default function NavList({ data }: NavListProps) {
   const theme = useTheme();
@@ -83,6 +91,8 @@ export default function NavList({ data }: NavListProps) {
     </>
   );
 }
+
+// ----------------------------------------------------------------------
 
 function NavSubList({ data, subheader, sx, ...other }: NavSubListProps) {
   const pathname = usePathname();

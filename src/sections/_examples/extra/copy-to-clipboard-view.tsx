@@ -23,8 +23,6 @@ import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 
 import ComponentHero from 'src/sections/_examples/component-hero';
 
-// ----------------------------------------------------------------------
-
 export default function CopyToClipboardView() {
   const { enqueueSnackbar } = useSnackbar();
 

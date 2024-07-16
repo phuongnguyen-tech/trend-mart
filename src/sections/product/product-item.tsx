@@ -1,9 +1,4 @@
-import Fab from '@mui/material/Fab';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Tooltip from '@mui/material/Tooltip';
+import { Box, Fab, Card, Link, Stack, Tooltip } from '@mui/material';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -17,9 +12,7 @@ import { ColorPreview } from 'src/components/color-utils';
 
 import { IProductItem } from 'src/types/product';
 
-import { useCheckoutContext } from '../checkout/context/checkout-context';
-
-// ----------------------------------------------------------------------
+import { useCheckoutContext } from '../checkout/context';
 
 type Props = {
   product: IProductItem;

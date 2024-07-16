@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import Badge from '@mui/material/Badge';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
-import Drawer from '@mui/material/Drawer';
+// import Drawer from '@mui/material/Drawer';
 import { alpha } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
@@ -21,11 +21,12 @@ import { paths } from 'src/routes/paths';
 
 import { useBoolean } from 'src/hooks/use-boolean';
 
-import Logo from 'src/components/logo';
+// import Logo from 'src/components/logo';
 import Label from 'src/components/label';
 import Iconify from 'src/components/iconify';
+import { NavBasicDesktop } from 'src/components/nav-basic';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-import { NavBasicMobile, NavBasicDesktop } from 'src/components/nav-basic';
+// import { NavBasicMobile, NavBasicDesktop } from 'src/components/nav-basic';
 import {
   NavSectionMini,
   NavSectionVertical,
@@ -110,7 +111,7 @@ export default function NavigationBarView() {
           />
         </Stack>
       </Stack>
-
+      {/* 
       <Drawer
         open={mobileOpen.value}
         onClose={mobileOpen.onFalse}
@@ -128,7 +129,6 @@ export default function NavigationBarView() {
               fontSize: 15,
               fontFamily: (theme) => theme.typography.fontSecondaryFamily,
               '& .icon': {
-                /* push your styles */
               },
               '& .text-container': {},
               '& .label': {},
@@ -144,7 +144,7 @@ export default function NavigationBarView() {
             },
           }}
         />
-      </Drawer>
+      </Drawer> */}
     </>
   );
 
