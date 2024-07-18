@@ -24,9 +24,9 @@ type Props = {
 
 export default function CheckoutCartProductList({
   products,
-  onDecreaseQuantity,
   onDelete,
   onIncreaseQuantity,
+  onDecreaseQuantity,
 }: Props) {
   return (
     <TableContainer sx={{ overflow: 'unset' }}>

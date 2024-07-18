@@ -5,6 +5,8 @@ import { styled, useTheme } from '@mui/material/styles';
 
 import { bgBlur } from 'src/theme/css';
 
+// ----------------------------------------------------------------------
+
 export function StyledMapControls() {
   const theme = useTheme();
 
@@ -43,6 +45,8 @@ export function StyledMapControls() {
 
   return inputGlobalStyles;
 }
+
+// ----------------------------------------------------------------------
 
 export const StyledPopup = styled(Popup)(({ theme }) => {
   const isRTL = theme.direction === 'rtl';
@@ -88,6 +92,8 @@ export const StyledPopup = styled(Popup)(({ theme }) => {
     },
   };
 });
+
+// ----------------------------------------------------------------------
 
 export const StyledControlPanel = styled('div')(({ theme }) => ({
   ...bgBlur({ color: theme.palette.grey[900] }),

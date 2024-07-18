@@ -1,101 +1,108 @@
-import {
-  Stack,
-  Button,
-  Dialog,
-  TextField,
-  IconButton,
-  DialogProps,
-  DialogTitle,
-  DialogActions,
-  DialogContent,
-  InputAdornment,
-} from '@mui/material';
+import { useState, useCallback } from 'react';
+
+import { Stack, Button, Dialog, TextField, Typography, InputAdornment } from '@mui/material';
 
 import Iconify from 'src/components/iconify';
-import CustomPopover, { usePopover } from 'src/components/custom-popover';
+import SearchNotFound from 'src/components/search-not-found';
 
-interface Props extends DialogProps {
+import { IPaymentCard } from 'src/types/payment';
+
+import PaymentCardItem from './payment-card-item';
+
+type Props = {
+  open: boolean;
   onClose: VoidFunction;
-}
+  list: IPaymentCard[];
+  selected: (selectedId: string) => boolean;
+  onSelect: (card: IPaymentCard | null) => void;
+};
 
-export default function PaymentNewCardDialog({ onClose, ...other }: Props) {
-  const popover = usePopover();
+export default function PaymentCardListDialog({ open, list, onClose, selected, onSelect }: Props) {
+  const [searchCard, setSearchCard] = useState('');
+
+  const dataFiltered = applyFilter({
+    inputData: list,
+    query: searchCard,
+  });
+
+  const notFound = !dataFiltered.length && !!searchCard;
+
+  const handleSearchAddress = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchCard(event.target.value);
+  }, []);
+
+  const handleSelectCard = useCallback(
+    (card: IPaymentCard | null) => {
+      onSelect(card);
+      setSearchCard('');
+      onClose();
+    },
+    [onClose, onSelect]
+  );
+
+  const renderList = (
+    <Stack spacing={2.5} sx={{ p: 3 }}>
+      {list.map((card) => (
+        <PaymentCardItem
+          key={card.id}
+          card={card}
+          onClick={() => handleSelectCard(card)}
+          sx={{
+            cursor: 'pointer',
+            ...(selected(card.id) && {
+              boxShadow: (theme) => `0 0 0 2px ${theme.palette.text.primary}`,
+            }),
+          }}
+        />
+      ))}
+    </Stack>
+  );
 
   return (
-    <>
-      <Dialog maxWidth="sm" onClose={onClose} {...other}>
-        <DialogTitle>New Card</DialogTitle>
-
-        <DialogContent sx={{ overflow: 'unset' }}>
-          <Stack spacing={2.5}>
-            <TextField
-              autoFocus
-              label="Card Number"
-              placeholder="XXXX XXXX XXXX XXXX"
-              InputLabelProps={{ shrink: true }}
-            />
-
-            <TextField
-              label="Card Holder"
-              placeholder="JOHN DOE"
-              InputLabelProps={{ shrink: true }}
-            />
-
-            <Stack spacing={2} direction="row">
-              <TextField
-                label="Expiration Date"
-                placeholder="MM/YY"
-                InputLabelProps={{ shrink: true }}
-              />
-              <TextField
-                label="CVV/CVC"
-                placeholder="***"
-                InputLabelProps={{ shrink: true }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton size="small" edge="end" onClick={popover.onOpen}>
-                        <Iconify icon="eva:info-outline" />
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Stack>
-
-            <Stack
-              direction="row"
-              alignItems="center"
-              sx={{
-                typography: 'caption',
-                color: 'text.disabled',
-              }}
-            >
-              <Iconify icon="carbon:locked" sx={{ mr: 0.5 }} />
-              Your transaction is secured with SSL encryption
-            </Stack>
-          </Stack>
-        </DialogContent>
-
-        <DialogActions>
-          <Button color="inherit" variant="outlined" onClick={onClose}>
-            Cancel
-          </Button>
-
-          <Button variant="contained" onClick={onClose}>
-            Add
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      <CustomPopover
-        open={popover.open}
-        onClose={popover.onClose}
-        arrow="bottom-center"
-        sx={{ maxWidth: 200, typography: 'body2', textAlign: 'center' }}
+    <Dialog fullWidth maxWidth="xs" open={open} onClose={onClose}>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{ p: 3, pr: 1.5 }}
       >
-        Three-digit number on the back of your VISA card
-      </CustomPopover>
-    </>
+        <Typography variant="h6"> Cards </Typography>
+
+        <Button
+          size="small"
+          startIcon={<Iconify icon="mingcute:add-line" />}
+          sx={{ alignSelf: 'flex-end' }}
+        >
+          New
+        </Button>
+      </Stack>
+
+      <Stack sx={{ px: 3 }}>
+        <TextField
+          value={searchCard}
+          onChange={handleSearchAddress}
+          placeholder="Search..."
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled' }} />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Stack>
+
+      {notFound ? <SearchNotFound query={searchCard} sx={{ px: 3, pt: 5, pb: 10 }} /> : renderList}
+    </Dialog>
   );
+}
+
+function applyFilter({ inputData, query }: { inputData: IPaymentCard[]; query: string }) {
+  if (query) {
+    return inputData.filter(
+      (card) => card.cardNumber.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    );
+  }
+
+  return inputData;
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import { memo } from 'react';
 
 import Radio from '@mui/material/Radio';

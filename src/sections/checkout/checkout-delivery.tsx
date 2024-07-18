@@ -92,7 +92,6 @@ function OptionItem({ option, selected, ...other }: OptionItemProps) {
             <Box component="span" sx={{ flexGrow: 1 }}>
               {label}
             </Box>
-
             <Box component="span" sx={{ typography: 'h6' }}>{`$${value}`}</Box>
           </Stack>
         }

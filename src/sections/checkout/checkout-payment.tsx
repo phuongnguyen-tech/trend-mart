@@ -18,6 +18,7 @@ import {
 import { useCheckoutContext } from './context';
 import CheckoutSummary from './checkout-summary';
 import CheckoutDelivery from './checkout-delivery';
+import CheckoutBillingInfo from './checkout-billing-info';
 import CheckoutPaymentMethods from './checkout-payment-methods';
 
 const DELIVERY_OPTIONS: ICheckoutDeliveryOption[] = [
@@ -117,6 +118,8 @@ export default function CheckoutPayment() {
         </Grid>
 
         <Grid xs={12} md={4}>
+          <CheckoutBillingInfo billing={checkout.billing} onBackStep={checkout.onBackStep} />
+
           <CheckoutSummary
             total={checkout.total}
             subTotal={checkout.subTotal}

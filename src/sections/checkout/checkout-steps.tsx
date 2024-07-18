@@ -1,10 +1,15 @@
-import Box from '@mui/material/Box';
-import Step from '@mui/material/Step';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-import Stepper, { StepperProps } from '@mui/material/Stepper';
-import StepLabel, { stepLabelClasses } from '@mui/material/StepLabel';
-import MuiStepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
+import MuiStepConnector from '@mui/material/StepConnector';
+import {
+  Box,
+  Step,
+  Stack,
+  styled,
+  Stepper,
+  StepLabel,
+  StepperProps,
+  stepLabelClasses,
+  stepConnectorClasses,
+} from '@mui/material';
 
 import Iconify from 'src/components/iconify';
 
@@ -43,7 +48,7 @@ export default function CheckoutSteps({ steps, activeStep, sx, ...other }: Props
       {steps.map((label) => (
         <Step key={label}>
           <StepLabel
-            StepIconComponent={StepIcon}
+            StepIconComponent={(props) => <StepIcon {...props} />}
             sx={{
               [`& .${stepLabelClasses.label}`]: {
                 fontWeight: 'fontWeightSemiBold',
@@ -63,7 +68,7 @@ type StepIconProps = {
   completed?: boolean;
 };
 
-function StepIcon({ active = false, completed = false }: StepIconProps) {
+function StepIcon({ active, completed }: StepIconProps) {
   return (
     <Stack
       alignItems="center"

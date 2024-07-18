@@ -20,7 +20,7 @@ type Props = {
   discount?: number;
   subTotal: number;
   shipping?: number;
-
+  //
   onEdit?: VoidFunction;
   onApplyDiscount?: (discount: number) => void;
 };
@@ -30,6 +30,7 @@ export default function CheckoutSummary({
   discount,
   subTotal,
   shipping,
+  //
   onEdit,
   onApplyDiscount,
 }: Props) {
@@ -54,7 +55,6 @@ export default function CheckoutSummary({
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               Sub Total
             </Typography>
-
             <Typography variant="subtitle2">{fCurrency(subTotal)}</Typography>
           </Stack>
 
@@ -62,7 +62,6 @@ export default function CheckoutSummary({
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               Discount
             </Typography>
-
             <Typography variant="subtitle2">{discount ? fCurrency(-discount) : '-'}</Typography>
           </Stack>
 
@@ -70,7 +69,6 @@ export default function CheckoutSummary({
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               Shipping
             </Typography>
-
             <Typography variant="subtitle2">
               {shipping ? fCurrency(shipping) : displayShipping}
             </Typography>
@@ -80,12 +78,10 @@ export default function CheckoutSummary({
 
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="subtitle1">Total</Typography>
-
             <Box sx={{ textAlign: 'right' }}>
               <Typography variant="subtitle1" sx={{ color: 'error.main' }}>
                 {fCurrency(total)}
               </Typography>
-
               <Typography variant="caption" sx={{ fontStyle: 'italic' }}>
                 (VAT included if applicable)
               </Typography>

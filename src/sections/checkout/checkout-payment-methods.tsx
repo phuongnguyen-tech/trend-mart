@@ -20,7 +20,7 @@ import Iconify from 'src/components/iconify';
 
 import { ICheckoutCardOption, ICheckoutPaymentOption } from 'src/types/checkout';
 
-import PaymentNewCardDialog from '../payment/payment-card-list-dialog';
+import PaymentNewCardDialog from '../payment/payment-new-card-dialog';
 
 interface Props extends CardProps {
   options: ICheckoutPaymentOption[];

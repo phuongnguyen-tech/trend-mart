@@ -34,14 +34,20 @@ export default function CheckoutCartProduct({ row, onDelete, onDecrease, onIncre
       <TableCell sx={{ display: 'flex', alignItems: 'center' }}>
         <Avatar variant="rounded" alt={name} src={coverUrl} sx={{ width: 64, height: 64, mr: 2 }} />
 
-        <Stack
-          direction="row"
-          alignItems="center"
-          sx={{ typography: 'body2', color: 'text.secondary' }}
-        >
-          size: <Label sx={{ ml: 0.5 }}>{size}</Label>
-          <Divider orientation="vertical" sx={{ mx: 1, height: 16 }} />
-          <ColorPreview colors={colors} />
+        <Stack spacing={0.5}>
+          <Typography noWrap variant="subtitle2" sx={{ maxWidth: 240 }}>
+            {name}
+          </Typography>
+
+          <Stack
+            direction="row"
+            alignItems="center"
+            sx={{ typography: 'body2', color: 'text.secondary' }}
+          >
+            size: <Label sx={{ ml: 0.5 }}> {size} </Label>
+            <Divider orientation="vertical" sx={{ mx: 1, height: 16 }} />
+            <ColorPreview colors={colors} />
+          </Stack>
         </Stack>
       </TableCell>
 

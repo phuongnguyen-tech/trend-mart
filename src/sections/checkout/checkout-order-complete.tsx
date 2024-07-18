@@ -3,13 +3,13 @@ import { m, AnimatePresence } from 'framer-motion';
 import {
   Box,
   Link,
-  Stack,
   Paper,
+  Stack,
   Button,
   Dialog,
   Divider,
-  Typography,
   PaperProps,
+  Typography,
   DialogProps,
 } from '@mui/material';
 
@@ -30,7 +30,7 @@ export default function CheckoutOrderComplete({ open, onReset, onDownloadPDF }: 
       sx={{
         m: 'auto',
         maxWidth: 480,
-        alignItems: 'center',
+        textAlign: 'center',
         px: { xs: 2, sm: 0 },
       }}
     >

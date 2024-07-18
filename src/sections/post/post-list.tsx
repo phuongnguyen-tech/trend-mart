@@ -1,4 +1,5 @@
-import { Grid, Stack, Button } from '@mui/material';
+import { Stack, Button } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import Iconify from 'src/components/iconify';
 
@@ -16,13 +17,11 @@ type Props = {
 export default function PostList({ posts, loading, disabledIndex }: Props) {
   const renderSkeleton = (
     <>
-      {[
-        ...Array(16).map((_, index) => (
-          <Grid key={index} xs={12} sm={6} md={3}>
-            <PostItemSkeleton />
-          </Grid>
-        )),
-      ]}
+      {[...Array(16)].map((_, index) => (
+        <Grid key={index} xs={12} sm={6} md={3}>
+          <PostItemSkeleton />
+        </Grid>
+      ))}
     </>
   );
 
@@ -43,7 +42,13 @@ export default function PostList({ posts, loading, disabledIndex }: Props) {
       </Grid>
 
       {posts.length > 8 && (
-        <Stack>
+        <Stack
+          alignItems="center"
+          sx={{
+            mt: 8,
+            mb: { xs: 10, md: 15 },
+          }}
+        >
           <Button
             size="large"
             variant="outlined"

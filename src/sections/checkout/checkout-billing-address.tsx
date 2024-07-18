@@ -31,7 +31,6 @@ export default function CheckoutBillingAddress() {
                       Delete
                     </Button>
                   )}
-
                   <Button
                     variant="outlined"
                     size="small"
@@ -69,16 +68,17 @@ export default function CheckoutBillingAddress() {
               New Address
             </Button>
           </Stack>
+        </Grid>
 
-          <Grid xs={12} md={4}>
-            <CheckoutSummary
-              total={checkout.total}
-              subTotal={checkout.subTotal}
-              discount={checkout.discount}
-            />
-          </Grid>
+        <Grid xs={12} md={4}>
+          <CheckoutSummary
+            total={checkout.total}
+            subTotal={checkout.subTotal}
+            discount={checkout.discount}
+          />
         </Grid>
       </Grid>
+
       <AddressNewForm
         open={addressForm.value}
         onClose={addressForm.onFalse}

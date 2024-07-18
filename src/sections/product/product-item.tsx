@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Fab, Card, Link, Stack, Tooltip } from '@mui/material';
 
 import { paths } from 'src/routes/paths';
@@ -37,6 +39,8 @@ export default function ProductItem({ product }: Props) {
       size: sizes[0],
       quantity: 1,
     };
+    console.log(newProduct, 'ass');
+
     try {
       onAddToCart(newProduct);
     } catch (error) {

@@ -11,7 +11,7 @@ export default function HomePage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push(paths.product.root);
+    router.push(paths.post.root);
   }, [router]);
 
   return null;

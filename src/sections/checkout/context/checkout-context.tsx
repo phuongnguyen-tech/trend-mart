@@ -4,6 +4,8 @@ import { useContext, createContext } from 'react';
 
 import { CheckoutContextProps } from 'src/types/checkout';
 
+// ----------------------------------------------------------------------
+
 export const CheckoutContext = createContext({} as CheckoutContextProps);
 
 export const useCheckoutContext = () => {

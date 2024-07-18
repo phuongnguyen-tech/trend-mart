@@ -1,5 +1,10 @@
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Card, Button, CardHeader, Typography } from '@mui/material';
+'use client';
+
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Unstable_Grid2';
+import CardHeader from '@mui/material/CardHeader';
+import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -11,15 +16,19 @@ import { useCheckoutContext } from './context';
 import CheckoutSummary from './checkout-summary';
 import CheckoutCartProductList from './checkout-cart-product-list';
 
+// ----------------------------------------------------------------------
+
 export default function CheckoutCart() {
+  console.log('affff');
+
   const checkout = useCheckoutContext();
 
-  const empty = !checkout.items.length;
+  const empty = !checkout.items;
 
   return (
-    <Grid>
-      <Grid>
-        <Card>
+    <Grid container spacing={3}>
+      <Grid xs={12} md={8}>
+        <Card sx={{ mb: 3 }}>
           <CardHeader
             title={
               <Typography variant="h6">
@@ -31,9 +40,10 @@ export default function CheckoutCart() {
             }
             sx={{ mb: 3 }}
           />
+
           {empty ? (
             <EmptyContent
-              title="Cart is empty"
+              title="Cart is Empty!"
               description="Look like you have no items in your shopping cart."
               imgUrl="/assets/icons/empty/ic_cart.svg"
               sx={{ pt: 5, pb: 10 }}
@@ -58,7 +68,7 @@ export default function CheckoutCart() {
         </Button>
       </Grid>
 
-      <Grid>
+      <Grid xs={12} md={4}>
         <CheckoutSummary
           total={checkout.total}
           discount={checkout.discount}

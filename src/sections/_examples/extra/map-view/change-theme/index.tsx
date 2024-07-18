@@ -1,3 +1,5 @@
+'use client';
+
 import Map from 'react-map-gl';
 import { memo, useState, useCallback } from 'react';
 

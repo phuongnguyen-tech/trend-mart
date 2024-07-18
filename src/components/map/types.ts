@@ -1,5 +1,7 @@
 import { MapProps } from 'react-map-gl';
 
+// ----------------------------------------------------------------------
+
 export type MapBoxProps = Omit<MapProps, 'fog' | 'terrain'>;
 
 export type MapSettings = {

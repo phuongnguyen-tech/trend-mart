@@ -15,6 +15,8 @@ import { ICheckoutItem } from 'src/types/checkout';
 
 import { CheckoutContext } from './checkout-context';
 
+// ----------------------------------------------------------------------
+
 const STORAGE_KEY = 'checkout';
 
 const initialState = {
