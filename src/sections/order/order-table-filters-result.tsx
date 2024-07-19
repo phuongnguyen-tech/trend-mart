@@ -7,8 +7,6 @@ import { shortDateLabel } from 'src/components/custom-date-range-picker';
 
 import { IOrderTableFilters, IOrderTableFilterValue } from 'src/types/order';
 
-// ----------------------------------------------------------------------
-
 type Props = StackProps & {
   filters: IOrderTableFilters;
   onFilters: (name: string, value: IOrderTableFilterValue) => void;
@@ -81,8 +79,6 @@ export default function OrderTableFiltersResult({
     </Stack>
   );
 }
-
-// ----------------------------------------------------------------------
 
 type BlockProps = StackProps & {
   label: string;

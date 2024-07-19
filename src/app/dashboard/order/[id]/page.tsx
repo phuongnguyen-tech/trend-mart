@@ -1,5 +1,7 @@
 import { _orders } from 'src/_mock';
 
+import OrderDetailsView from 'src/sections/order/view/order-details-view';
+
 export const metadata = {
   title: 'Dashboard: Order Details',
 };

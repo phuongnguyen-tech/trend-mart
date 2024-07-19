@@ -1,3 +1,5 @@
+'use client';
+
 import { useSnackbar } from 'notistack';
 import { useRouter } from 'next/navigation';
 import React, { useState, useCallback } from 'react';
