@@ -1,14 +1,17 @@
 'use client';
 
-import { isEqual, orderBy } from 'lodash';
+import orderBy from 'lodash/orderBy';
+import isEqual from 'lodash/isEqual';
 import { useState, useCallback } from 'react';
 
-import { Stack, Container, Typography } from '@mui/material';
+import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
 import { useBoolean } from 'src/hooks/use-boolean';
-import { useDebounce } from 'src/hooks/ues-debounce';
+import { useDebounce } from 'src/hooks/use-debounce';
 
 import { useGetProducts, useSearchProducts } from 'src/api/product';
 import {
@@ -22,16 +25,18 @@ import {
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
 
-import { useCheckoutContext } from 'src/sections/checkout/context/checkout-context';
+import { useCheckoutContext } from 'src/sections/checkout/context';
 
 import { IProductItem, IProductFilters, IProductFilterValue } from 'src/types/product';
 
-import ProductSort from '../product-sort';
 import ProductList from '../product-list';
+import ProductSort from '../product-sort';
 import CartIcon from '../common/cart-icon';
 import ProductSearch from '../product-search';
 import ProductFilters from '../product-filters';
-import ProductFiltersResult from '../product-filter-result';
+import ProductFiltersResult from '../product-filters-result';
+
+// ----------------------------------------------------------------------
 
 const defaultFilters: IProductFilters = {
   gender: [],
@@ -40,6 +45,8 @@ const defaultFilters: IProductFilters = {
   category: 'all',
   priceRange: [0, 200],
 };
+
+// ----------------------------------------------------------------------
 
 export default function ProductShopView() {
   const settings = useSettingsContext();
@@ -177,6 +184,8 @@ export default function ProductShopView() {
   );
 }
 
+// ----------------------------------------------------------------------
+
 function applyFilter({
   inputData,
   filters,
@@ -192,26 +201,24 @@ function applyFilter({
 
   const max = priceRange[1];
 
-  // Sort By
-
+  // SORT BY
   if (sortBy === 'featured') {
-    inputData = orderBy(inputData, ['totalSold', ['desc']]);
+    inputData = orderBy(inputData, ['totalSold'], ['desc']);
   }
 
   if (sortBy === 'newest') {
-    inputData = orderBy(inputData, ['createdAt', ['desc']]);
+    inputData = orderBy(inputData, ['createdAt'], ['desc']);
   }
 
   if (sortBy === 'priceDesc') {
-    inputData = orderBy(inputData, ['price', ['desc']]);
+    inputData = orderBy(inputData, ['price'], ['desc']);
   }
 
   if (sortBy === 'priceAsc') {
-    inputData = orderBy(inputData, ['price', ['asc']]);
+    inputData = orderBy(inputData, ['price'], ['asc']);
   }
 
-  // Filter
-
+  // FILTERS
   if (gender.length) {
     inputData = inputData.filter((product) => gender.includes(product.gender));
   }
@@ -233,9 +240,9 @@ function applyFilter({
   if (rating) {
     inputData = inputData.filter((product) => {
       const convertRating = (value: string) => {
-        if (value === 'up4star') return 4;
-        if (value === 'up3star') return 3;
-        if (value === 'up2star') return 2;
+        if (value === 'up4Star') return 4;
+        if (value === 'up3Star') return 3;
+        if (value === 'up2Star') return 2;
         return 1;
       };
       return product.totalRatings > convertRating(rating);

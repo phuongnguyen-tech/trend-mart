@@ -1,12 +1,20 @@
-import { IProductItem } from 'src/types/product';
-import { useCheckoutContext } from '../checkout/context/checkout-context';
+'use client';
+
+import { Box, Fab, Card, Link, Stack, Tooltip } from '@mui/material';
+
 import { paths } from 'src/routes/paths';
-import { Box, Card, Fab, Link, Stack, Tooltip } from '@mui/material';
-import Label from 'src/components/label';
-import Iconify from 'src/components/iconify';
-import Image from 'src/components/image';
 import { RouterLink } from 'src/routes/components';
+
+import { fCurrency } from 'src/utils/format-number';
+
+import Label from 'src/components/label';
+import Image from 'src/components/image';
+import Iconify from 'src/components/iconify';
 import { ColorPreview } from 'src/components/color-utils';
+
+import { IProductItem } from 'src/types/product';
+
+import { useCheckoutContext } from '../checkout/context';
 
 type Props = {
   product: IProductItem;
@@ -31,6 +39,8 @@ export default function ProductItem({ product }: Props) {
       size: sizes[0],
       quantity: 1,
     };
+    console.log(newProduct, 'ass');
+
     try {
       onAddToCart(newProduct);
     } catch (error) {

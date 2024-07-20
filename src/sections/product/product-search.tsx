@@ -22,7 +22,7 @@ type Props = {
   results: IProductItem[];
   onSearch: (inputValue: string) => void;
   hrefItem: (id: string) => string;
-  loading: boolean;
+  loading?: boolean;
 };
 
 export default function ProductSearch({ query, results, onSearch, hrefItem, loading }: Props) {
