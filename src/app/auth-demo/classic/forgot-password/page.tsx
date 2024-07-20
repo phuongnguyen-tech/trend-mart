@@ -1,6 +1,6 @@
 import { ClassicForgotPasswordView } from 'src/sections/auth-demo/classic';
 
-export const metaData = {
+export const metadata = {
   title: 'Auth Classic: Forgot Password',
 };
 

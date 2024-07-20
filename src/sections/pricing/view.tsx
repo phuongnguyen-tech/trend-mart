@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Stack, Switch, Container, Typography } from '@mui/material';
 
 import { _pricingPlans } from 'src/_mock';

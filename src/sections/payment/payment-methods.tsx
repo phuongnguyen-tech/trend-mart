@@ -1,5 +1,3 @@
-'use client';
-
 import { useState, useCallback } from 'react';
 
 import {
@@ -17,7 +15,7 @@ import { useBoolean } from 'src/hooks/use-boolean';
 
 import Iconify from 'src/components/iconify';
 
-import PaymentNewCardDialog from './payment-card-list-dialog';
+import PaymentNewCardDialog from './payment-new-card-dialog';
 
 const PAYMENT_OPTIONS = [
   {

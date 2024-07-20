@@ -1,6 +1,6 @@
 import { ModernForgotPasswordView } from 'src/sections/auth-demo/modern';
 
-export const metadate = {
+export const metadata = {
   title: 'Auth Modern: Forgot Password',
 };
 
