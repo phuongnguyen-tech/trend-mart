@@ -1,7 +1,13 @@
 import FullCalendar from '@fullcalendar/react';
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
+import { EventResizeDoneArg } from '@fullcalendar/interaction';
+import { EventDropArg, DateSelectArg, EventClickArg } from '@fullcalendar/core';
+
 import { useResponsive } from 'src/hooks/use-responsive';
-import { ICalendarRange, ICalendarView } from 'src/types/calendar';
+
+import { fTimestamp } from 'src/utils/format-time';
+
+import { ICalendarView, ICalendarEvent, ICalendarRange } from 'src/types/calendar';
 
 export default function useCalendar() {
   const calendarRef = useRef<FullCalendar>(null);
@@ -25,31 +31,32 @@ export default function useCalendar() {
   }, []);
 
   const onCloseForm = useCallback(() => {
-    setOpenForm(false)
-    setSelectedRange(null)
-    setSelectEventId('')
-  }, [])
+    setOpenForm(false);
+    setSelectedRange(null);
+    setSelectEventId('');
+  }, []);
 
   const onInitialView = useCallback(() => {
     if (calendarEl) {
-      const calendarApi = calendarEl.getApi()
+      const calendarApi = calendarEl.getApi();
 
       const newView = smUp ? 'dayGridMonth' : 'listWeek';
-      calendarApi.changeView(newView)
-      setView(newView)
+      calendarApi.changeView(newView);
+      setView(newView);
     }
-  },[calendarEl, smUp])
+  }, [calendarEl, smUp]);
 
   const onChangeView = useCallback(
     (newView: ICalendarView) => {
       if (calendarEl) {
-        const calendarApi = calendarEl.getApi()
+        const calendarApi = calendarEl.getApi();
 
-        calendarApi.changeView(newView)
-        setView(newView)
+        calendarApi.changeView(newView);
+        setView(newView);
       }
-    },[calendarEl]
-  )
+    },
+    [calendarEl]
+  );
 
   const onDateToday = useCallback(() => {
     if (calendarEl) {
@@ -78,5 +85,88 @@ export default function useCalendar() {
     }
   }, [calendarEl]);
 
-  
+  const onSelectRange = useCallback(
+    (arg: DateSelectArg) => {
+      if (calendarEl) {
+        const calendarApi = calendarEl.getApi();
+
+        calendarApi.unselect();
+      }
+      onOpenForm();
+      setSelectedRange({
+        start: fTimestamp(arg.start),
+        end: fTimestamp(arg.end),
+      });
+    },
+    [calendarEl, onOpenForm]
+  );
+
+  const onClickEvent = useCallback(
+    (arg: EventClickArg) => {
+      const { event } = arg;
+
+      onOpenForm();
+      setSelectEventId(event.id);
+    },
+    [onOpenForm]
+  );
+
+  const onResizeEvent = useCallback(
+    (arg: EventResizeDoneArg, updateEvent: (eventData: Partial<ICalendarEvent>) => void) => {
+      const { event } = arg;
+
+      updateEvent({
+        id: event.id,
+        allDay: event.allDay,
+        start: fTimestamp(event.start),
+        end: fTimestamp(event.end),
+      });
+    },
+    []
+  );
+
+  const onDropEvent = useCallback(
+    (arg: EventDropArg, updateEvent: (eventData: Partial<ICalendarEvent>) => void) => {
+      const { event } = arg;
+
+      updateEvent({
+        id: event.id,
+        allDay: event.allDay,
+        start: fTimestamp(event.start),
+        end: fTimestamp(event.end),
+      });
+    },
+    []
+  );
+
+  const onClickEventInFilters = useCallback(
+    (eventId: string) => {
+      if (eventId) {
+        onOpenForm();
+        setSelectEventId(eventId);
+      }
+    },
+    [onOpenForm]
+  );
+
+  return {
+    calendarRef,
+    view,
+    date,
+    onDatePrev,
+    onDateNext,
+    onDateToday,
+    onDropEvent,
+    onClickEvent,
+    onChangeView,
+    onSelectRange,
+    onResizeEvent,
+    onInitialView,
+    openForm,
+    onOpenForm,
+    onCloseForm,
+    selectEventId,
+    selectedRange,
+    onClickEventInFilters,
+  };
 }
