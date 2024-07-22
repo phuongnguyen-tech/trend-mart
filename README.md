@@ -43,3 +43,5 @@
 - react-map-gl: là một thư viện React được xây dựng trên nền tảng Mapbox GL JS và cung cấp các công cụ mạnh mẽ để làm việc với bản đồ tương tác trong ứng dụng React của bạn.
 
 - react-organizational-chart: là một thư viện React giúp bạn dễ dàng tạo ra các biểu đồ tổ chức (organizational charts) trong ứng dụng của mình. Biểu đồ tổ chức là công cụ trực quan để biểu diễn cấu trúc của một tổ chức, thường hiển thị các mối quan hệ giữa các phòng ban, nhóm, và cá nhân.
+
+- @fullcalendar/react
