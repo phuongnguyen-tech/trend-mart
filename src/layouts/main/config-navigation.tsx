@@ -12,28 +12,28 @@ export const navConfig = [
     icon: <Iconify icon="solar:home-2-bold-duotone" />,
     path: '/',
   },
-  {
-    title: 'Components',
-    icon: <Iconify icon="solar:atom-bold-duotone" />,
-    path: paths.components,
-  },
+  // {
+  //   title: 'Components',
+  //   icon: <Iconify icon="solar:atom-bold-duotone" />,
+  //   path: paths.components,
+  // },
   {
     title: 'Pages',
     path: '/pages',
     icon: <Iconify icon="solar:file-bold-duotone" />,
     children: [
-      {
-        subheader: 'Other',
-        items: [
-          { title: 'About us', path: paths.about },
-          { title: 'Contact us', path: paths.contact },
-          { title: 'FAQs', path: paths.faqs },
-          { title: 'Pricing', path: paths.pricing },
-          { title: 'Payment', path: paths.payment },
-          { title: 'Maintenance', path: paths.maintenance },
-          { title: 'Coming Soon', path: paths.comingSoon },
-        ],
-      },
+      // {
+      //   subheader: 'Other',
+      //   items: [
+      //     { title: 'About us', path: paths.about },
+      //     { title: 'Contact us', path: paths.contact },
+      //     { title: 'FAQs', path: paths.faqs },
+      //     { title: 'Pricing', path: paths.pricing },
+      //     { title: 'Payment', path: paths.payment },
+      //     { title: 'Maintenance', path: paths.maintenance },
+      //     { title: 'Coming Soon', path: paths.comingSoon },
+      //   ],
+      // },
       {
         subheader: 'Concepts',
         items: [
