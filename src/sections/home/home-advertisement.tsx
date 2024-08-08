@@ -48,7 +48,7 @@ export default function HomeAdvertisement() {
               bgcolor: 'common.white',
             }}
           >
-            Purchase Now
+            Purchase Minimal UI Kit Now
           </Button>
         </m.div>
 

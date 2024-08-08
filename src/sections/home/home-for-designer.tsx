@@ -61,6 +61,7 @@ export default function HomeForDesigner() {
       component={m.img}
       src="/assets/images/home/for_designer.webp"
       variants={varFade().in}
+      alt="for_designer"
       sx={{
         height: 1,
         width: 0.5,
