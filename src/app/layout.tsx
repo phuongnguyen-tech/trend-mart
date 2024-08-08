@@ -44,6 +44,7 @@ export const metadata = {
     { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon/favicon-32x32.png' },
     { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
   ],
+  url: 'https://innhanhsieuviet.com/wp-content/uploads/2020/03/in-banner-0.jpg',
   images: [
     {
       url: 'https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg',
@@ -55,7 +56,7 @@ export const metadata = {
   openGraph: {
     title: 'FB',
     description: 'FB DEMO.',
-    url: 'https://github.com/phuongnguyen-tech/test-template/blob/main/public/logo/logo_single.png',
+    url: 'https://d3design.vn/uploads/Anh_bia_summer_sale_holiday_podium_display_on_yellow_background.jpg',
     type: 'website',
     images: [
       {
