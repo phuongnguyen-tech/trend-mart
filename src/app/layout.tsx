@@ -44,14 +44,22 @@ export const metadata = {
     { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon/favicon-32x32.png' },
     { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
   ],
+  images: [
+    {
+      url: 'https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg',
+      width: 400,
+      height: 300,
+      alt: 'Minimal UI Kit',
+    },
+  ],
   openGraph: {
-    title: 'Minimal UI Kit',
-    description: 'The starting point for your next project with Minimal UI Kit.',
+    title: 'FB',
+    description: 'FB DEMO.',
     url: 'https://github.com/phuongnguyen-tech/test-template/blob/main/public/logo/logo_single.png',
     type: 'website',
     images: [
       {
-        url: 'https://github.com/phuongnguyen-tech/test-template/blob/main/public/assets/illustrations/illustration_dashboard.png',
+        url: 'https://d1j8r0kxyu9tj8.cloudfront.net/images/1562663273OyCyS9raIe4XXr1.jpg',
         width: 800,
         height: 600,
         alt: 'Minimal UI Kit',

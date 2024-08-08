@@ -254,7 +254,7 @@ export default function HomeHugePackElements() {
         <m.div variants={varFade().in}>
           <AvatarGroup>
             {[...Array(8)].map((_, index) => (
-              <Avatar key={index} src={_mock.image.avatar(index)} />
+              <Avatar key={index} src={_mock.image.avatar(index)} alt={_mock.fullName(index)} />
             ))}
           </AvatarGroup>
         </m.div>
