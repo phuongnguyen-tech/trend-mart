@@ -2,6 +2,8 @@ import { LogoutOptions, PopupLoginOptions, RedirectLoginOptions } from '@auth0/a
 
 // ----------------------------------------------------------------------
 
+// ActionMapType rất hữu ích khi bạn muốn tạo ra các action types cho một hệ thống Redux
+// hoặc bất kỳ hệ thống quản lý trạng thái nào khác.
 export type ActionMapType<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
     ? {
@@ -13,6 +15,8 @@ export type ActionMapType<M extends { [index: string]: any }> = {
       };
 };
 
+// AuthUserType: Định nghĩa kiểu cho người dùng xác thực. Nó có thể là null (nếu chưa đăng nhập)
+// hoặc một Record<string, any>, tức là một đối tượng với các thuộc tính bất kỳ.
 export type AuthUserType = null | Record<string, any>;
 
 export type AuthStateType = {
@@ -23,6 +27,7 @@ export type AuthStateType = {
 
 // ----------------------------------------------------------------------
 
+// CanRemove: Định nghĩa một tập hợp các hàm liên quan đến xác thực người dùng.
 type CanRemove = {
   login?: (email: string, password: string) => Promise<void>;
   register?: (
@@ -46,6 +51,8 @@ type CanRemove = {
   updatePassword?: (password: string) => Promise<void>;
 };
 
+// JWTContextType: Kết hợp tất cả các hàm từ CanRemove với các thuộc tính
+// và hàm khác để tạo nên một kiểu dữ liệu tổng hợp cho ngữ cảnh xác thực.
 export type JWTContextType = CanRemove & {
   user: AuthUserType;
   method: string;

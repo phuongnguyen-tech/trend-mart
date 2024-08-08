@@ -84,6 +84,7 @@ type Props = {
 export function AuthProvider({ children }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // initialize kiểm tra xem người dùng đã đăng nhập trước đó chưa bằng cách kiểm tra token trong sessionStorage
   const initialize = useCallback(async () => {
     try {
       const accessToken = sessionStorage.getItem(STORAGE_KEY);
@@ -194,6 +195,7 @@ export function AuthProvider({ children }: Props) {
 
   const status = state.loading ? 'loading' : checkAuthenticated;
 
+  // Sử dụng useMemo để ghi nhớ giá trị context, tránh việc tạo lại các đối tượng không cần thiết khi các dependency không thay đổi.
   const memoizedValue = useMemo(
     () => ({
       user: state.user,

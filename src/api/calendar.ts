@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
-import { ICalendarEvent } from 'src/types/calendar';
-import { endpoints, fetcher } from 'src/utils/axios';
 import useSWR, { mutate } from 'swr';
+
+import { fetcher, endpoints } from 'src/utils/axios';
+
+import { ICalendarEvent } from 'src/types/calendar';
 
 const URL = endpoints.calendar;
 

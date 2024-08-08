@@ -15,6 +15,7 @@ const ROOTS = {
 };
 
 // ----------------------------------------------------------------------
+// Settings paths for web
 
 export const paths = {
   comingSoon: '/coming-soon',

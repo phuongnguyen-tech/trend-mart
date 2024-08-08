@@ -7,7 +7,7 @@ import { useResponsive } from 'src/hooks/use-responsive';
 
 import { fTimestamp } from 'src/utils/format-time';
 
-import { ICalendarView, ICalendarEvent, ICalendarRange } from 'src/types/calendar';
+import { ICalendarView, ICalendarRange, ICalendarEvent } from 'src/types/calendar';
 
 export default function useCalendar() {
   const calendarRef = useRef<FullCalendar>(null);
@@ -71,7 +71,7 @@ export default function useCalendar() {
     if (calendarEl) {
       const calendarApi = calendarEl.getApi();
 
-      calendarApi.today();
+      calendarApi.prev();
       setDate(calendarApi.getDate());
     }
   }, [calendarEl]);
@@ -80,7 +80,7 @@ export default function useCalendar() {
     if (calendarEl) {
       const calendarApi = calendarEl.getApi();
 
-      calendarApi.today();
+      calendarApi.next();
       setDate(calendarApi.getDate());
     }
   }, [calendarEl]);
@@ -151,8 +151,10 @@ export default function useCalendar() {
 
   return {
     calendarRef,
+    //
     view,
     date,
+    //
     onDatePrev,
     onDateNext,
     onDateToday,
@@ -162,11 +164,14 @@ export default function useCalendar() {
     onSelectRange,
     onResizeEvent,
     onInitialView,
+    //
     openForm,
     onOpenForm,
     onCloseForm,
+    //
     selectEventId,
     selectedRange,
+    //
     onClickEventInFilters,
   };
 }

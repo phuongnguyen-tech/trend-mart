@@ -44,6 +44,20 @@ export const metadata = {
     { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon/favicon-32x32.png' },
     { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
   ],
+  openGraph: {
+    title: 'Minimal UI Kit',
+    description: 'The starting point for your next project with Minimal UI Kit.',
+    url: 'https://github.com/phuongnguyen-tech/test-template/blob/main/public/logo/logo_single.png',
+    type: 'website',
+    images: [
+      {
+        url: 'https://github.com/phuongnguyen-tech/test-template/blob/main/public/assets/illustrations/illustration_dashboard.png',
+        width: 800,
+        height: 600,
+        alt: 'Minimal UI Kit',
+      },
+    ],
+  },
 };
 
 type Props = {

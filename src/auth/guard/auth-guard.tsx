@@ -27,6 +27,7 @@ export default function AuthGuard({ children }: Props) {
 
 // ----------------------------------------------------------------------
 
+// Kiểm tra xem người dùng có xác thực hay chưa. Nếu người dùng chưa xác thực, họ sẽ được chuyển hướng đến trang đăng nhập.
 function Container({ children }: Props) {
   const router = useRouter();
 
