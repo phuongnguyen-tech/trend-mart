@@ -56,7 +56,7 @@ export default function NavUpgrade() {
         </Stack>
 
         <Button variant="contained" href={paths.minimalUI} target="_blank" rel="noopener">
-          Upgrade to Pro
+          Upgrade to Pro for Enhanced Features
         </Button>
       </Stack>
     </Stack>

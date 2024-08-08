@@ -260,7 +260,7 @@ function PlanCard({ plan, sx, ...other }: PlanCardProps) {
           href={paths.minimalUI}
           endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
         >
-          Learn more
+          Learn more about Minimal UI Kit
         </Button>
       </Stack>
     </Stack>
