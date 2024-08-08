@@ -1,18 +1,9 @@
-'use client';
+import { HomeView } from 'src/sections/home/view';
 
-import { useEffect } from 'react';
-
-import { paths } from 'src/routes/paths';
-import { useRouter } from 'src/routes/hooks';
-
-// ----------------------------------------------------------------------
+// export const metadata = {
+//   title: 'Minimal: The starting point for your next project',
+// };
 
 export default function HomePage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push(paths.post.root);
-  }, [router]);
-
-  return null;
+  return <HomeView />;
 }
