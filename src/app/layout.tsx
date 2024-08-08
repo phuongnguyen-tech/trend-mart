@@ -55,7 +55,7 @@ export const metadata = {
   openGraph: {
     title: 'FB',
     description: 'FB DEMO.',
-    url: 'https://github.com/phuongnguyen-tech/test-template/blob/main/public/logo/logo_single.png',
+    url: 'https://d3design.vn/uploads/Anh_bia_summer_sale_holiday_podium_display_on_yellow_background.jpg',
     type: 'website',
     images: [
       {
