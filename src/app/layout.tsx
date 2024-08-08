@@ -18,10 +18,6 @@ import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
 import { CheckoutProvider } from 'src/sections/checkout/context';
 
 import { AuthProvider } from 'src/auth/context/jwt';
-// import { AuthProvider } from 'src/auth/context/auth0';
-// import { AuthProvider } from 'src/auth/context/amplify';
-// import { AuthProvider } from 'src/auth/context/firebase';
-// import { AuthProvider } from 'src/auth/context/supabase';
 
 // ----------------------------------------------------------------------
 
@@ -33,39 +29,31 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Minimal UI Kit',
-  description:
-    'The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI ©, ready to be customized to your style',
-  keywords: 'react,material,kit,application,dashboard,admin,template',
-  manifest: '/manifest.json',
-  icons: [
-    { rel: 'icon', url: '/favicon/favicon.ico' },
-    { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon/favicon-16x16.png' },
-    { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon/favicon-32x32.png' },
-    { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
-  ],
-  url: 'https://innhanhsieuviet.com/wp-content/uploads/2020/03/in-banner-0.jpg',
-  images: [
-    {
-      url: 'https://graphicsfamily.com/wp-content/uploads/edd/2021/10/Business-Website-Banner-Design-1180x664.jpg',
-      width: 400,
-      height: 300,
-      alt: 'Minimal UI Kit',
-    },
-  ],
   openGraph: {
-    title: 'FB',
-    description: 'FB DEMO.',
-    url: 'https://d3design.vn/uploads/Anh_bia_summer_sale_holiday_podium_display_on_yellow_background.jpg',
-    type: 'website',
+    title: 'Next.js',
+    description: 'The React Framework for the Web',
+    url: 'https://template-shopping.vercel.app/',
+    siteName: 'Next.js',
+    icons: [
+      { rel: 'icon', url: '/favicon/favicon.ico' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon/favicon-16x16.png' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon/favicon-32x32.png' },
+      { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
+    ],
     images: [
       {
-        url: 'https://d1j8r0kxyu9tj8.cloudfront.net/images/1562663273OyCyS9raIe4XXr1.jpg',
+        url: 'https://www.digitalprintingireland.ie/media/slideshows/dp/631/school-pvc-banner.jpg', // Must be an absolute URL
         width: 800,
         height: 600,
-        alt: 'Minimal UI Kit',
+      },
+      {
+        url: 'https://fedudesign.vn/wp-content/uploads/2020/07/Web-1920-%E2%80%93-2.jpg', // Must be an absolute URL
+        width: 1800,
+        height: 1600,
+        alt: 'My custom alt',
       },
     ],
+    type: 'website',
   },
 };
 
