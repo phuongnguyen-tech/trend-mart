@@ -29,17 +29,17 @@ export const viewport = {
 };
 
 export const metadata = {
+  title: 'Next.js',
+  description: 'The React Framework for the Web',
+  siteName: 'Next.js',
+  icons: [
+    { rel: 'icon', url: '/favicon/favicon.ico' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon/favicon-16x16.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon/favicon-32x32.png' },
+    { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
+  ],
   openGraph: {
-    title: 'Next.js',
-    description: 'The React Framework for the Web',
     url: 'https://template-shopping.vercel.app/',
-    siteName: 'Next.js',
-    icons: [
-      { rel: 'icon', url: '/favicon/favicon.ico' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon/favicon-16x16.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon/favicon-32x32.png' },
-      { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
-    ],
     images: [
       {
         url: 'https://www.digitalprintingireland.ie/media/slideshows/dp/631/school-pvc-banner.jpg', // Must be an absolute URL
