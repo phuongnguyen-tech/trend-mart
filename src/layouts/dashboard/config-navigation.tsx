@@ -62,31 +62,31 @@ export function useNavData() {
             path: paths.dashboard.root,
             icon: ICONS.dashboard,
           },
-          {
-            title: t('ecommerce'),
-            path: paths.dashboard.general.ecommerce,
-            icon: ICONS.ecommerce,
-          },
-          {
-            title: t('analytics'),
-            path: paths.dashboard.general.analytics,
-            icon: ICONS.analytics,
-          },
-          {
-            title: t('banking'),
-            path: paths.dashboard.general.banking,
-            icon: ICONS.banking,
-          },
-          {
-            title: t('booking'),
-            path: paths.dashboard.general.booking,
-            icon: ICONS.booking,
-          },
-          {
-            title: t('file'),
-            path: paths.dashboard.general.file,
-            icon: ICONS.file,
-          },
+          // {
+          //   title: t('ecommerce'),
+          //   path: paths.dashboard.general.ecommerce,
+          //   icon: ICONS.ecommerce,
+          // },
+          // {
+          //   title: t('analytics'),
+          //   path: paths.dashboard.general.analytics,
+          //   icon: ICONS.analytics,
+          // },
+          // {
+          //   title: t('banking'),
+          //   path: paths.dashboard.general.banking,
+          //   icon: ICONS.banking,
+          // },
+          // {
+          //   title: t('booking'),
+          //   path: paths.dashboard.general.booking,
+          //   icon: ICONS.booking,
+          // },
+          // {
+          //   title: t('file'),
+          //   path: paths.dashboard.general.file,
+          //   icon: ICONS.file,
+          // },
         ],
       },
 
@@ -167,30 +167,30 @@ export function useNavData() {
           },
 
           // JOB
-          {
-            title: t('job'),
-            path: paths.dashboard.job.root,
-            icon: ICONS.job,
-            children: [
-              { title: t('list'), path: paths.dashboard.job.root },
-              { title: t('details'), path: paths.dashboard.job.demo.details },
-              { title: t('create'), path: paths.dashboard.job.new },
-              { title: t('edit'), path: paths.dashboard.job.demo.edit },
-            ],
-          },
+          // {
+          //   title: t('job'),
+          //   path: paths.dashboard.job.root,
+          //   icon: ICONS.job,
+          //   children: [
+          //     { title: t('list'), path: paths.dashboard.job.root },
+          //     { title: t('details'), path: paths.dashboard.job.demo.details },
+          //     { title: t('create'), path: paths.dashboard.job.new },
+          //     { title: t('edit'), path: paths.dashboard.job.demo.edit },
+          //   ],
+          // },
 
           // TOUR
-          {
-            title: t('tour'),
-            path: paths.dashboard.tour.root,
-            icon: ICONS.tour,
-            children: [
-              { title: t('list'), path: paths.dashboard.tour.root },
-              { title: t('details'), path: paths.dashboard.tour.demo.details },
-              { title: t('create'), path: paths.dashboard.tour.new },
-              { title: t('edit'), path: paths.dashboard.tour.demo.edit },
-            ],
-          },
+          // {
+          //   title: t('tour'),
+          //   path: paths.dashboard.tour.root,
+          //   icon: ICONS.tour,
+          //   children: [
+          //     { title: t('list'), path: paths.dashboard.tour.root },
+          //     { title: t('details'), path: paths.dashboard.tour.demo.details },
+          //     { title: t('create'), path: paths.dashboard.tour.new },
+          //     { title: t('edit'), path: paths.dashboard.tour.demo.edit },
+          //   ],
+          // },
 
           // FILE MANAGER
           {
@@ -304,16 +304,16 @@ export function useNavData() {
             caption:
               'Quisque malesuada placerat nisl. In hac habitasse platea dictumst. Cras id dui. Pellentesque commodo eros a enim. Morbi mollis tellus ac sapien.',
           },
-          {
-            title: t('item_external_link'),
-            path: 'https://www.google.com/',
-            icon: ICONS.external,
-          },
-          {
-            title: t('blank'),
-            path: paths.dashboard.blank,
-            icon: ICONS.blank,
-          },
+          // {
+          //   title: t('item_external_link'),
+          //   path: 'https://www.google.com/',
+          //   icon: ICONS.external,
+          // },
+          // {
+          //   title: t('blank'),
+          //   path: paths.dashboard.blank,
+          //   icon: ICONS.blank,
+          // },
         ],
       },
     ],

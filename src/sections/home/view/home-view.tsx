@@ -50,6 +50,7 @@ export default function HomeView() {
     <MainLayout>
       <ScrollProgress scrollYProgress={scrollYProgress} />
 
+      {/* Animation scroll Img */}
       <HomeHero />
 
       <Box

@@ -55,9 +55,9 @@ export default function NavUpgrade() {
           </Typography>
         </Stack>
 
-        <Button variant="contained" href={paths.minimalUI} target="_blank" rel="noopener">
+        {/* <Button variant="contained" href={paths.minimalUI} target="_blank" rel="noopener">
           Upgrade to Pro for Enhanced Features
-        </Button>
+        </Button> */}
       </Stack>
     </Stack>
   );
