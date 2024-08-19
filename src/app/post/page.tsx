@@ -14,7 +14,7 @@ async function getPostList() {
 }
 
 export default async function PostListHomePage() {
-  const posts: IPostItem[] = await getPostList();
+  const posts = await getPostList();
 
   return <PostListHomeView postList={posts} />;
 }

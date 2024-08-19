@@ -98,7 +98,7 @@ export function useGetPostsSSR(postList: IPostItem[]) {
   return memoizeValue;
 }
 
-export function useGetPostSSR(title: string, post: IPostItem) {
+export function useGetPostSSR(title: string, post?: IPostItem) {
   const URL = title ? [endpoints.post.details, { params: { title } }] : '';
 
   const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, { fallbackData: post });

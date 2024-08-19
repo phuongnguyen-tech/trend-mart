@@ -35,7 +35,7 @@ import { PostDetailsSkeleton } from '../post-skeleton';
 
 type Props = {
   title: string;
-  postData: IPostItem;
+  postData?: IPostItem;
 };
 
 export default function PostDetailsHomeView({ title, postData }: Props) {
