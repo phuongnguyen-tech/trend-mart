@@ -17,12 +17,42 @@ async function getPostDetails(title: string): Promise<IPostItem | null> {
 }
 
 // Tạo metadata động
-export async function generateMetadata({ params }: { params: { title: string } }) {
+export async function generateMetadata({ params }: Props) {
   const { title } = params;
   const post = await getPostDetails(title);
 
   return {
-    title: `Post: ${post?.title || 'Not Found'}`, // Sử dụng tên bài viết để tạo metadata
+    title: `Post: ${post?.title || 'Not Found'}`,
+    description: post?.description || 'No description available for this post.',
+    metadataBase: new URL(`https://template-shopping.vercel.app/post/${title}`),
+    openGraph: {
+      title: `Post: ${post?.title || 'Not Found'}`,
+      description: post?.description || 'No description available for this post.',
+      url: `https://template-shopping.vercel.app/post/${title}`,
+      images: [
+        {
+          url:
+            post?.coverUrl ||
+            'https://tenten.vn/tin-tuc/wp-content/uploads/2021/09/blog-la-gi-4.jpg',
+          width: 800,
+          height: 600,
+          alt: post?.title || 'Default Post Image',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@yourtwitterhandle',
+      title: `Post: ${post?.title || 'Not Found'}`,
+      description: post?.description || 'No description available for this post.',
+      image:
+        post?.coverUrl || 'https://tenten.vn/tin-tuc/wp-content/uploads/2021/09/blog-la-gi-4.jpg',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    canonical: `https://template-shopping.vercel.app/post/${title}`,
   };
 }
 

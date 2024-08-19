@@ -25,6 +25,37 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 
   return {
     title: `Product: ${product.name}`,
+    description: product.description || 'No description available for this product.',
+    metadataBase: new URL(`https://template-shopping.vercel.app/product/${product.id}`),
+    openGraph: {
+      title: `Product: ${product.name}`,
+      description: product.description || 'No description available for this product.',
+      url: `https://template-shopping.vercel.app/product/${product.id}`,
+      images: [
+        {
+          url:
+            product.coverUrl ||
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsibd6v7lZ6qjvFkWnPj2mCRcxvqz2qaqtRQ&s',
+          width: 800,
+          height: 600,
+          alt: product.name || 'Default Product Image',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@yourtwitterhandle',
+      title: `Product: ${product.name}`,
+      description: product.description || 'No description available for this product.',
+      image:
+        product.coverUrl ||
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsibd6v7lZ6qjvFkWnPj2mCRcxvqz2qaqtRQ&s',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    canonical: `https://template-shopping.vercel.app/product/${product.id}`,
   };
 }
 

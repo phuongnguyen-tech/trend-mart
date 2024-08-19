@@ -29,8 +29,10 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'Next.js',
-  description: 'The React Framework for the Web',
+  title: 'Next.js - The React Framework for the Web',
+  description:
+    'Discover Next.js, the powerful React framework for building modern web applications. Explore features, tutorials, and more.',
+  metadataBase: new URL('https://template-shopping.vercel.app'),
   siteName: 'Next.js',
   icons: [
     { rel: 'icon', url: '/favicon/favicon.ico' },
@@ -39,22 +41,40 @@ export const metadata = {
     { rel: 'apple-touch-icon', sizes: '180x180', url: '/favicon/apple-touch-icon.png' },
   ],
   openGraph: {
-    url: 'https://template-shopping.vercel.app/',
+    url: 'https://template-shopping.vercel.app',
+    title: 'Next.js - The React Framework for the Web',
+    description:
+      'Explore the React framework for building modern web applications with Next.js. Learn about its features and benefits.',
     images: [
       {
-        url: 'https://www.digitalprintingireland.ie/media/slideshows/dp/631/school-pvc-banner.jpg', // Must be an absolute URL
+        url: 'https://www.digitalprintingireland.ie/media/slideshows/dp/631/school-pvc-banner.jpg',
         width: 800,
         height: 600,
+        alt: 'Next.js Overview Banner',
       },
       {
-        url: 'https://fedudesign.vn/wp-content/uploads/2020/07/Web-1920-%E2%80%93-2.jpg', // Must be an absolute URL
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
+        url: 'https://fedudesign.vn/wp-content/uploads/2020/07/Web-1920-%E2%80%93-2.jpg',
+        width: 500,
+        height: 300,
+        alt: 'Web Design Example',
       },
     ],
     type: 'website',
+    site_name: 'Next.js',
   },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@nextjs',
+    title: 'Next.js - The React Framework for the Web',
+    description:
+      'Explore the React framework for building modern web applications with Next.js. Learn about its features and benefits.',
+    image: 'https://www.digitalprintingireland.ie/media/slideshows/dp/631/school-pvc-banner.jpg',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  canonical: 'https://template-shopping.vercel.app',
 };
 
 type Props = {
