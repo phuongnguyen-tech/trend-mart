@@ -37,11 +37,8 @@ export default async function PostDetailsHomePage({ params }: Props) {
   const post = await getPostDetails(title);
 
   if (!post) {
-    // You might want to handle this scenario better in a real app, e.g., show a "not found" page
-    return <div>Post not found</div>;
+    return <div>Failed to fetch post details</div>;
   }
-
-  console.log('detail', post);
 
   return <PostDetailsHomeView postData={post} title={title} />;
 }
