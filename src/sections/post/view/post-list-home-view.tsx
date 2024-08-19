@@ -10,7 +10,7 @@ import { paths } from 'src/routes/paths';
 import { useDebounce } from 'src/hooks/use-debounce';
 
 import { POST_SORT_OPTIONS } from 'src/_mock';
-import { useGetPosts, useSearchPosts } from 'src/api/post';
+import { useGetPostsSSR, useSearchPosts } from 'src/api/post';
 
 import { useSettingsContext } from 'src/components/settings';
 
@@ -20,7 +20,11 @@ import PostList from '../post-list';
 import PostSort from '../post-sort';
 import PostSearch from '../post-search';
 
-export default function PostListHomeView() {
+type Props = {
+  postList: IPostItem[];
+};
+
+export default function PostListHomeView({ postList }: Props) {
   const settings = useSettingsContext();
 
   const [sortBy, setSortBy] = useState('latest');
@@ -29,7 +33,7 @@ export default function PostListHomeView() {
 
   const debouncedQuery = useDebounce(searchQuery);
 
-  const { posts, postsLoading } = useGetPosts();
+  const { posts, postsLoading } = useGetPostsSSR(postList);
 
   const { searchResults, searchLoading } = useSearchPosts(debouncedQuery);
 

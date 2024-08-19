@@ -18,12 +18,14 @@ import { RouterLink } from 'src/routes/components';
 
 import { fShortenNumber } from 'src/utils/format-number';
 
-import { useGetPost, useGetLatestPosts } from 'src/api/post';
+import { useGetPostSSR, useGetLatestPosts } from 'src/api/post';
 
 import Iconify from 'src/components/iconify';
 import Markdown from 'src/components/markdown';
 import EmptyContent from 'src/components/empty-content';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs/custom-breadcrumbs';
+
+import { IPostItem } from 'src/types/post';
 
 import PostList from '../post-list';
 import PostDetailsHero from '../post-details-hero';
@@ -33,10 +35,11 @@ import { PostDetailsSkeleton } from '../post-skeleton';
 
 type Props = {
   title: string;
+  postData?: IPostItem;
 };
 
-export default function PostDetailsHomeView({ title }: Props) {
-  const { post, postError, postLoading } = useGetPost(title);
+export default function PostDetailsHomeView({ title, postData }: Props) {
+  const { post, postError, postLoading } = useGetPostSSR(title, postData);
 
   const { latestPosts, latestPostsLoading } = useGetLatestPosts(title);
 

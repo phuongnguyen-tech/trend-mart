@@ -15,12 +15,14 @@ import Typography from '@mui/material/Typography';
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 
-import { useGetProduct } from 'src/api/product';
+import { useGetProductSSR } from 'src/api/product';
 
 import Iconify from 'src/components/iconify';
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
+
+import { IProductItem } from 'src/types/product';
 
 import CartIcon from '../common/cart-icon';
 import { useCheckoutContext } from '../../checkout/context';
@@ -29,8 +31,6 @@ import { ProductDetailsSkeleton } from '../product-skeleton';
 import ProductDetailsSummary from '../product-details-summary';
 import ProductDetailsCarousel from '../product-details-carousel';
 import ProductDetailsDescription from '../product-details-description';
-
-// ----------------------------------------------------------------------
 
 const SUMMARY = [
   {
@@ -50,20 +50,19 @@ const SUMMARY = [
   },
 ];
 
-// ----------------------------------------------------------------------
-
 type Props = {
   id: string;
+  productData: IProductItem;
 };
 
-export default function ProductShopDetailsView({ id }: Props) {
+export default function ProductShopDetailsView({ id, productData }: Props) {
   const settings = useSettingsContext();
 
   const checkout = useCheckoutContext();
 
   const [currentTab, setCurrentTab] = useState('description');
 
-  const { product, productLoading, productError } = useGetProduct(id);
+  const { product, productLoading, productError } = useGetProductSSR(id, productData);
 
   const handleChangeTab = useCallback((event: React.SyntheticEvent, newValue: string) => {
     setCurrentTab(newValue);

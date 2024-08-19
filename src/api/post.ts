@@ -79,3 +79,39 @@ export function useGetLatestPosts(title: string) {
 
   return memoizedValue;
 }
+
+export function useGetPostsSSR(postList: IPostItem[]) {
+  const URL = endpoints.post.list;
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, { fallbackData: postList });
+
+  const memoizeValue = useMemo(
+    () => ({
+      posts: (data?.posts as IPostItem[]) || [],
+      postsLoading: isLoading,
+      postsError: error,
+      postsValidating: isValidating,
+      postsEmpty: !isLoading && !data?.posts.length,
+    }),
+    [data?.posts, error, isLoading, isValidating]
+  );
+  return memoizeValue;
+}
+
+export function useGetPostSSR(title: string, post?: IPostItem) {
+  const URL = title ? [endpoints.post.details, { params: { title } }] : '';
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, { fallbackData: post });
+
+  const memoizedValue = useMemo(
+    () => ({
+      post: data?.post as IPostItem,
+      postLoading: isLoading,
+      postError: error,
+      postValidating: isValidating,
+    }),
+    [data?.post, error, isLoading, isValidating]
+  );
+
+  return memoizedValue;
+}

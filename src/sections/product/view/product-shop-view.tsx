@@ -13,7 +13,7 @@ import { paths } from 'src/routes/paths';
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useDebounce } from 'src/hooks/use-debounce';
 
-import { useGetProducts, useSearchProducts } from 'src/api/product';
+import { useGetProductsSSR, useSearchProducts } from 'src/api/product';
 import {
   PRODUCT_SORT_OPTIONS,
   PRODUCT_COLOR_OPTIONS,
@@ -36,8 +36,6 @@ import ProductSearch from '../product-search';
 import ProductFilters from '../product-filters';
 import ProductFiltersResult from '../product-filters-result';
 
-// ----------------------------------------------------------------------
-
 const defaultFilters: IProductFilters = {
   gender: [],
   colors: [],
@@ -46,9 +44,11 @@ const defaultFilters: IProductFilters = {
   priceRange: [0, 200],
 };
 
-// ----------------------------------------------------------------------
+type Props = {
+  productList: IProductItem[];
+};
 
-export default function ProductShopView() {
+export default function ProductShopView({ productList }: Props) {
   const settings = useSettingsContext();
 
   const checkout = useCheckoutContext();
@@ -63,7 +63,7 @@ export default function ProductShopView() {
 
   const [filters, setFilters] = useState(defaultFilters);
 
-  const { products, productsLoading, productsEmpty } = useGetProducts();
+  const { products, productsLoading, productsEmpty } = useGetProductsSSR(productList);
 
   const { searchResults, searchLoading } = useSearchProducts(debouncedQuery);
 
