@@ -59,3 +59,42 @@ export function useSearchProducts(query: string) {
   );
   return memoizeValue;
 }
+
+export function useGetProductsSSR(productList: IProductItem[]) {
+  const URL = endpoints.product.list;
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, {
+    fallbackData: { productList },
+  });
+
+  const memoizeValue = useMemo(
+    () => ({
+      products: (data?.products as IProductItem[]) || [],
+      productsLoading: isLoading,
+      productsError: error,
+      productsValidating: isValidating,
+      productsEmpty: !isLoading && !data?.products.length,
+    }),
+    [data?.products, error, isLoading, isValidating]
+  );
+  return memoizeValue;
+}
+
+export function useGetProductSSR(productId: string, product: IProductItem) {
+  const URL = productId ? [endpoints.product.details, { params: { productId } }] : '';
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, {
+    fallbackData: { product },
+  });
+
+  const memoizeValue = useMemo(
+    () => ({
+      product: data?.product as IProductItem,
+      productLoading: isLoading,
+      productError: error,
+      productValidating: isValidating,
+    }),
+    [data?.product, error, isLoading, isValidating]
+  );
+  return memoizeValue;
+}
