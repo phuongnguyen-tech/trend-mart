@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import {
   Chip,
   Stack,
@@ -39,11 +41,23 @@ type Props = {
 };
 
 export default function PostDetailsHomeView({ title, postData }: Props) {
+  console.log('fallback', postData);
   const { post, postError, postLoading } = useGetPostSSR(title, postData);
 
   const { latestPosts, latestPostsLoading } = useGetLatestPosts(title);
 
   const renderSkeleton = <PostDetailsSkeleton />;
+
+  // --------------------------
+
+  useEffect(() => {
+    if (post) {
+      console.log('Data fetched or revalidated at:', new Date().toLocaleString());
+      console.log('Fetched Data:', post);
+    }
+  }, [post]);
+
+  // ================
 
   const renderError = (
     <Container sx={{ my: 10 }}>
@@ -177,6 +191,8 @@ export default function PostDetailsHomeView({ title, postData }: Props) {
 
   return (
     <>
+      <h1>lastSeenAt: {post?.lastSeenAt}</h1>
+
       {postLoading && renderSkeleton}
 
       {postError && renderError}

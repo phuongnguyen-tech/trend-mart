@@ -98,3 +98,21 @@ export function useGetProductSSR(productId: string, product: IProductItem) {
   );
   return memoizeValue;
 }
+
+export function useGetProductByName(name: string) {
+  const URL = name ? [endpoints.post.details, { params: { name } }] : '';
+
+  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher);
+
+  const memoizedValue = useMemo(
+    () => ({
+      post: data?.product as IProductItem,
+      postLoading: isLoading,
+      postError: error,
+      postValidating: isValidating,
+    }),
+    [data?.product, error, isLoading, isValidating]
+  );
+
+  return memoizedValue;
+}

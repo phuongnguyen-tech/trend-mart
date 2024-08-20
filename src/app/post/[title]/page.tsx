@@ -4,12 +4,22 @@ import axiosInstance, { endpoints } from 'src/utils/axios';
 import PostDetailsHomeView from 'src/sections/post/view/post-details-home-view';
 
 import { IPostItem } from 'src/types/post';
+import { HOST_API } from 'src/config-global';
+
+export const revalidate = 20;
 
 // Hàm để lấy chi tiết bài viết
 async function getPostDetails(title: string): Promise<IPostItem | null> {
   try {
-    const res = await axiosInstance.get(`${endpoints.post.details}?title=${title}`);
-    return res.data.post ?? null;
+    // const res = await fetch(`${HOST_API}/${endpoints.post.details}?title=${title}`, {
+    //   next: {
+    //     revalidate: 20,
+    //   },
+    // }).then((r) => r.json());
+    const res = await axiosInstance
+      .get(`${endpoints.post.details}?title=${title}`)
+      .then((r) => r.data);
+    return res.post ?? null;
   } catch (error) {
     console.error('Failed to fetch post details:', error);
     return null;

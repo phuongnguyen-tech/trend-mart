@@ -3,7 +3,8 @@ import { paths } from 'src/routes/paths';
 // API
 // ----------------------------------------------------------------------
 
-export const HOST_API = 'https://api-shopping-beta.vercel.app';
+export const HOST_API = 'http://localhost:7924';
+// export const HOST_API = 'https://api-shopping-beta.vercel.app';
 export const ASSETS_API = 'https://api-shopping-beta.vercel.app';
 
 export const FIREBASE_API = {

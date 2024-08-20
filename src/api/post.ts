@@ -101,7 +101,12 @@ export function useGetPostsSSR(postList: IPostItem[]) {
 export function useGetPostSSR(title: string, post?: IPostItem) {
   const URL = title ? [endpoints.post.details, { params: { title } }] : '';
 
-  const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, { fallbackData: post });
+  const { data, isLoading, error, isValidating, mutate } = useSWR(URL, fetcher, {
+    fallbackData: { post }, // Dữ liệu ban đầu từ SSR/SSG
+    // refreshInterval: 20000, // Cơ chế tự động revalidate sau mỗi 1 giây
+    revalidateOnFocus: true, // Tự động revalidate khi người dùng quay lại trang
+    revalidateOnReconnect: true, // Tự động revalidate khi kết nối mạng được khôi phục
+  });
 
   const memoizedValue = useMemo(
     () => ({
