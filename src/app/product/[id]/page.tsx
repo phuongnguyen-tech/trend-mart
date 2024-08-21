@@ -1,4 +1,3 @@
-import { paramCase } from 'src/utils/change-case';
 import axios, { endpoints } from 'src/utils/axios';
 
 import ProductShopDetailsView from 'src/sections/product/view/product-shop-details-view';
@@ -22,7 +21,6 @@ async function getProductDetails(id: string) {
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const { id } = params;
   const product = await getProductDetails(id);
-
   return {
     title: `Product: ${product.name}`,
     description: product.description || 'No description available for this product.',
@@ -72,6 +70,5 @@ export async function generateStaticParams() {
 
   return res.data.products.map((product: { id: string; name: string }) => ({
     id: product.id,
-    name: paramCase(product.name),
   }));
 }
