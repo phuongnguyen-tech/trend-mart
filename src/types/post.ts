@@ -59,4 +59,5 @@ export type IPostItem = {
     name: string;
     avatarUrl: string;
   };
+  lastSeenAt: string;
 };
