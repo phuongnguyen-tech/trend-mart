@@ -1,15 +1,12 @@
 import { m } from 'framer-motion';
 
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Box, alpha, Button, useTheme, Container, Typography } from '@mui/material';
-
-import { paths } from 'src/routes/paths';
+import { Box, alpha, useTheme, Container, Typography } from '@mui/material';
 
 import { useResponsive } from 'src/hooks/use-responsive';
 
 import { bgGradient, textGradient } from 'src/theme/css';
 
-import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
 export default function HomeForDesigner() {
@@ -40,7 +37,7 @@ export default function HomeForDesigner() {
         </Typography>
       </m.div>
 
-      <m.div variants={varFade().inUp}>
+      {/* <m.div variants={varFade().inUp}>
         <Button
           color="inherit"
           size="large"
@@ -52,7 +49,7 @@ export default function HomeForDesigner() {
         >
           Figma Workspace
         </Button>
-      </m.div>
+      </m.div> */}
     </Box>
   );
 

@@ -1,11 +1,14 @@
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import { useTheme } from '@mui/material/styles';
-import Container from '@mui/material/Container';
-import Badge, { badgeClasses } from '@mui/material/Badge';
+import {
+  Box,
+  Link,
+  Badge,
+  Stack,
+  AppBar,
+  Toolbar,
+  useTheme,
+  Container,
+  badgeClasses,
+} from '@mui/material';
 
 import { paths } from 'src/routes/paths';
 
@@ -13,6 +16,7 @@ import { useOffSetTop } from 'src/hooks/use-off-set-top';
 import { useResponsive } from 'src/hooks/use-responsive';
 
 import { bgBlur } from 'src/theme/css';
+import { useAuthRedirect } from 'src/auth/hooks';
 
 import Logo from 'src/components/logo';
 import Label from 'src/components/label';
@@ -24,15 +28,13 @@ import { navConfig } from './config-navigation';
 import LoginButton from '../common/login-button';
 import HeaderShadow from '../common/header-shadow';
 import SettingsButton from '../common/settings-button';
-
-// ----------------------------------------------------------------------
+import AccountPopover from '../common/account-popover';
 
 export default function Header() {
   const theme = useTheme();
-
   const mdUp = useResponsive('up', 'md');
-
   const offsetTop = useOffSetTop(HEADER.H_DESKTOP);
+  const checked = useAuthRedirect();
 
   return (
     <AppBar>
@@ -87,7 +89,7 @@ export default function Header() {
           {mdUp && <NavDesktop data={navConfig} />}
 
           <Stack alignItems="center" direction={{ xs: 'row', md: 'row-reverse' }}>
-            {mdUp && <LoginButton />}
+            {mdUp && (checked ? <AccountPopover /> : <LoginButton />)}
 
             <SettingsButton
               sx={{

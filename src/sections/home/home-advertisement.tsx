@@ -1,12 +1,9 @@
 import { m } from 'framer-motion';
 
-import { Box, Stack, Button, useTheme, Container } from '@mui/material';
-
-import { paths } from 'src/routes/paths';
+import { Box, Stack, useTheme, Container } from '@mui/material';
 
 import { bgGradient } from 'src/theme/css';
 
-import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
 export default function HomeAdvertisement() {
@@ -30,7 +27,7 @@ export default function HomeAdvertisement() {
         <br /> Minimal kit today
       </Box>
 
-      <Stack
+      {/* <Stack
         direction={{ xs: 'column', md: 'row' }}
         justifyContent={{ xs: 'center', md: 'flex-start' }}
         spacing={2}
@@ -69,7 +66,7 @@ export default function HomeAdvertisement() {
             Get Free Version
           </Button>
         </m.div>
-      </Stack>
+      </Stack> */}
     </Box>
   );
 

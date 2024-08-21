@@ -1,32 +1,29 @@
 import { m } from 'framer-motion';
 
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Stack, Button, Container, Typography } from '@mui/material';
+import { Stack, Container, Typography } from '@mui/material';
 
-import { paths } from 'src/routes/paths';
-
-import { useResponsive } from 'src/hooks/use-responsive';
+// import { useResponsive } from 'src/hooks/use-responsive';
 
 import Image from 'src/components/image';
-import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
 export default function HomeLookingFor() {
-  const mdUp = useResponsive('up', 'md');
+  // const mdUp = useResponsive('up', 'md');
 
-  const renderBtn = (
-    <Button
-      color="inherit"
-      size="large"
-      variant="outlined"
-      target="_blank"
-      rel="noopener"
-      href={paths.zoneUI}
-      endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
-    >
-      Visit Zone Landing Page
-    </Button>
-  );
+  // const renderBtn = (
+  //   <Button
+  //     color="inherit"
+  //     size="large"
+  //     variant="outlined"
+  //     target="_blank"
+  //     rel="noopener"
+  //     href={paths.zoneUI}
+  //     endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
+  //   >
+  //     Visit Zone Landing Page
+  //   </Button>
+  // );
 
   const renderDescription = (
     <Stack
@@ -55,7 +52,7 @@ export default function HomeLookingFor() {
         </Typography>
       </m.div>
 
-      {mdUp && <m.div variants={varFade().inDown}> {renderBtn} </m.div>}
+      {/* {mdUp && <m.div variants={varFade().inDown}> {renderBtn} </m.div>} */}
     </Stack>
   );
 
@@ -77,11 +74,11 @@ export default function HomeLookingFor() {
           </m.div>
         </Grid>
 
-        {!mdUp && (
+        {/* {!mdUp && (
           <Grid xs={12} sx={{ textAlign: 'center' }}>
             {renderBtn}
           </Grid>
-        )}
+        )} */}
       </Grid>
     </Container>
   );

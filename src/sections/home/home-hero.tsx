@@ -4,7 +4,7 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import {
   Box,
-  Link,
+  // Link,
   Stack,
   alpha,
   Button,
@@ -247,7 +247,7 @@ export default function HomeHero() {
               Live Preview
             </Button>
 
-            <Link
+            {/* <Link
               color="inherit"
               variant="caption"
               target="_blank"
@@ -261,10 +261,10 @@ export default function HomeHero() {
             >
               <Iconify icon="eva:external-link-fill" width={16} sx={{ mr: 0.5 }} />
               Get Free Version
-            </Link>
+            </Link> */}
           </Stack>
 
-          <Button
+          {/* <Button
             color="inherit"
             size="large"
             variant="outlined"
@@ -275,7 +275,7 @@ export default function HomeHero() {
             sx={{ borderColor: 'text.primary' }}
           >
             Design Preview
-          </Button>
+          </Button> */}
         </Stack>
       </m.div>
 

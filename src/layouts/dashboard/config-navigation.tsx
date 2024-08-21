@@ -5,10 +5,7 @@ import { paths } from 'src/routes/paths';
 import { useTranslate } from 'src/locales';
 
 import Label from 'src/components/label';
-import Iconify from 'src/components/iconify';
 import SvgColor from 'src/components/svg-color';
-
-// ----------------------------------------------------------------------
 
 const icon = (name: string) => (
   <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />
@@ -287,23 +284,23 @@ export function useNavData() {
             icon: ICONS.disabled,
             disabled: true,
           },
-          {
-            title: t('item_label'),
-            path: '#label',
-            icon: ICONS.label,
-            info: (
-              <Label color="info" startIcon={<Iconify icon="solar:bell-bing-bold-duotone" />}>
-                NEW
-              </Label>
-            ),
-          },
-          {
-            title: t('item_caption'),
-            path: '#caption',
-            icon: ICONS.menuItem,
-            caption:
-              'Quisque malesuada placerat nisl. In hac habitasse platea dictumst. Cras id dui. Pellentesque commodo eros a enim. Morbi mollis tellus ac sapien.',
-          },
+          // {
+          //   title: t('item_label'),
+          //   path: '#label',
+          //   icon: ICONS.label,
+          //   info: (
+          //     <Label color="info" startIcon={<Iconify icon="solar:bell-bing-bold-duotone" />}>
+          //       NEW
+          //     </Label>
+          //   ),
+          // },
+          // {
+          //   title: t('item_caption'),
+          //   path: '#caption',
+          //   icon: ICONS.menuItem,
+          //   caption:
+          //     'Quisque malesuada placerat nisl. In hac habitasse platea dictumst. Cras id dui. Pellentesque commodo eros a enim. Morbi mollis tellus ac sapien.',
+          // },
           // {
           //   title: t('item_external_link'),
           //   path: 'https://www.google.com/',

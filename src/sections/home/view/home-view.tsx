@@ -10,7 +10,7 @@ import ScrollProgress from 'src/components/scroll-progress';
 
 import HomeHero from '../home-hero';
 import HomeMinimal from '../home-minimal';
-import HomePricing from '../home-pricing';
+// import HomePricing from '../home-pricing';
 import HomeDarkMode from '../home-dark-mode';
 import HomeLookingFor from '../home-looking-for';
 import HomeForDesigner from '../home-for-designer';
@@ -76,7 +76,7 @@ export default function HomeView() {
 
         <HomeCleanInterfaces />
 
-        <HomePricing />
+        {/* <HomePricing /> */}
 
         <HomeLookingFor />
 

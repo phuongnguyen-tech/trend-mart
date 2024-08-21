@@ -1,14 +1,17 @@
 import { m } from 'framer-motion';
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
-import Divider from '@mui/material/Divider';
-import { alpha } from '@mui/material/styles';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+import {
+  Box,
+  Stack,
+  alpha,
+  Avatar,
+  Divider,
+  MenuItem,
+  IconButton,
+  Typography,
+} from '@mui/material';
 
+import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
 
 import { useMockedUser } from 'src/hooks/use-mocked-user';
@@ -16,9 +19,8 @@ import { useMockedUser } from 'src/hooks/use-mocked-user';
 import { useAuthContext } from 'src/auth/hooks';
 
 import { varHover } from 'src/components/animate';
+import { useSnackbar } from 'src/components/snackbar';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
-
-// ----------------------------------------------------------------------
 
 const OPTIONS = [
   {
@@ -27,15 +29,13 @@ const OPTIONS = [
   },
   {
     label: 'Profile',
-    linkTo: '/#1',
+    linkTo: paths.dashboard.user.root,
   },
   {
     label: 'Settings',
-    linkTo: '/#2',
+    linkTo: paths.dashboard.user.account,
   },
 ];
-
-// ----------------------------------------------------------------------
 
 export default function AccountPopover() {
   const router = useRouter();
@@ -43,6 +43,8 @@ export default function AccountPopover() {
   const { user } = useMockedUser();
 
   const { logout } = useAuthContext();
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const popover = usePopover();
 
@@ -53,6 +55,7 @@ export default function AccountPopover() {
       router.replace('/');
     } catch (error) {
       console.error(error);
+      enqueueSnackbar('Unable to logout!', { variant: 'error' });
     }
   };
 
