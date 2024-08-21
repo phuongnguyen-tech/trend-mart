@@ -14,6 +14,13 @@
 
 ## Note
 
+- Ý tưởng
+
+  - dùng swr thay fetch  => dùng React Query thay SWR
+  - get product by name
+  - thay mock data
+  - thay yup bằng zod
+
 - Mackdown
 
   - ReactMarkdown: giúp render văn bản Markdown thành các thành phần React.

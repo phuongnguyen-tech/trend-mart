@@ -5,6 +5,7 @@ import PostDetailsHomeView from 'src/sections/post/view/post-details-home-view';
 
 import { IPostItem } from 'src/types/post';
 
+export const revalidate = 20;
 // Hàm để lấy chi tiết bài viết
 async function getPostDetails(title: string): Promise<IPostItem | null> {
   try {
@@ -70,7 +71,12 @@ export default async function PostDetailsHomePage({ params }: Props) {
     return <div>Failed to fetch post details</div>;
   }
 
-  return <PostDetailsHomeView postData={post} title={title} />;
+  return (
+    <>
+      <h1>Persent: {post.lastSeenAt}</h1>
+      <PostDetailsHomeView postData={post} title={title} />;
+    </>
+  );
 }
 
 export async function generateStaticParams() {
